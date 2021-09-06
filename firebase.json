@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "sahaya-cs",
     "public": "dist/Sahaya",
     "ignore": [
       "firebase.json",
