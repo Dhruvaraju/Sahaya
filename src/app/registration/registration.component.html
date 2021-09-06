@@ -1,0 +1,160 @@
+<div class="container-fluid ps-md-0 ">
+  <div class="bg-image img js-fullheight" 
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+             ">
+      
+
+  
+<!-- <div class="card bg-dark bg-image " > -->
+  
+  <!-- <div class="login100-pic js-tilt image" data-tilt  >
+      <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" style="width: 20; background-repeat : no-repeat;">
+  </div> -->
+  <article class="card-body mx-auto" style="max-width: 400px;">
+
+	<h3 class="card-title mt-3 text-center">Create Account</h3>
+
+	<form [formGroup]="registrationForm" *ngIf="!submitted" novalidate>
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+		 </div>
+        <input name="" class="form-control" id="Full name" placeholder="Full name" type="text" formControlName="fullname"/>
+  </div>
+  <div *ngIf="registrationForm.get('fullname').invalid && registrationForm.get('fullname').touched">
+        <small *ngIf= "registrationForm.get('fullname').errors?.required" class="text-danger">Name is Required</small></div>
+     <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Email address" type="email" formControlName="email"/>
+        </div>
+        <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
+        <small *ngIf= "registrationForm.get('email').errors?.required" class="text-danger">email is Required</small></div>
+  
+      <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		</div>
+		<select class="custom-select" style="max-width: 70px;">
+		    <option selected="">+91</option>
+		    <option value="1">+31</option> 
+		</select>
+    	<input name="" class="form-control" placeholder="Phone number" type="text" formControlName="phonenumber">
+    </div>
+      <div *ngIf="registrationForm.get('phonenumber').invalid && registrationForm.get('phonenumber').touched">
+        <small *ngIf= "registrationForm.get('phonenumber').errors?.required" class="text-danger">Phonenumber is Required</small>
+        <small *ngIf= "registrationForm.get('phonenumber').errors?.minlength" class="text-danger" >phonenumber must be 10 digits</small>
+      </div>
+     <!-- form-group// --> 
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-question-circle"></i> </span>
+		</div>
+		<select class="form-control" formControlName="question1">
+			<option selected="">What is the name of the Birth Place?</option>
+			<!-- <option>What is the name of the Birth Place?</option> -->
+			<option>What is your favourite Food?</option>
+			<option>What is the favourite place to visit?</option>
+		</select>
+    <!-- <div><option selected=""> Secret Question 1</option></div> -->
+	</div> <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-unlock" aria-hidden="true"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Answer" type="text" formControlName="answer1">
+    </div>
+        <div *ngIf="registrationForm.get('answer1').invalid && registrationForm.get('answer1').touched">
+          <small *ngIf= "registrationForm.get('answer1').errors?.required" class="text-danger">Answer is Required</small></div>
+       <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-question-circle"></i> </span>
+      </div>
+      <select class="form-control" placeholder="Secret question2" formControlName="question2">
+        <!-- <div> <option selected="" > Secret Question 2</option></div> -->
+        <option selected="" >Who is your favourite sports person?</option>
+        <!-- <option>Who is your favourite sports person?</option> -->
+        <option>Which school did you studied?</option>
+        <option>What is your favourite sports?</option>
+      </select>
+    </div> <!-- form-group end.// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-unlock"></i> </span>
+      </div>
+          <input class="form-control" placeholder="Answer" type="text" formControlName="answer2">
+        </div>
+        <div *ngIf="registrationForm.get('answer2').invalid && registrationForm.get('answer2').touched">
+          <small *ngIf= "registrationForm.get('answer2').errors?.required" class="text-danger">Answer is Required</small></div>
+      
+     <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock fa-fw"></i> </span>
+        <!-- <input formControlName="password" class="input200 form-control " type="password"  placeholder="password"> -->
+      </div>
+      <input class="form-control" placeholder="password" type="password" formControlName="password">
+    </div>
+     <div *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">
+      <small *ngIf= "registrationForm.get('password').errors?.required" class="text-danger">password is Required</small>
+      <small *ngIf= "registrationForm.get('password').errors?.pattern" class="text-danger">password must contain special character,uppercase and lower case and number and minimum 8 character</small>
+    </div>
+   
+    <!-- form-group// -->  
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock fa-fw"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Confirm password" type="password" formControlName="cpassword"   [class.is-invlaid]="registrationForm.errors?.mismatch">
+        
+      </div>
+      <div *ngIf="registrationForm.get('cpassword').invalid && registrationForm.get('cpassword').touched">
+        <small *ngIf= "registrationForm.get('cpassword').errors?.required" class="text-danger">confirm password is Required</small>
+      </div>
+      
+      <div
+        *ngIf="registrationForm.errors?.mismatch"
+        class="text-danger"
+      >
+        <small>password mismatch</small>
+      </div>
+      
+
+    
+    <div *ngIf="alreadyexists">
+      <h5>User already exists</h5>
+      <small class="alert alert-danger"
+        >Try again with different username or email!</small
+      >
+    </div>
+    <div *ngIf="errors">System Unavailable,try again later!</div>
+    <!-- form-group// -->                                      
+    <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" (click)="onsubmit()" [disabled]="registrationForm.invalid"> Create Account  </button>
+        </div>
+    <!-- form-group// -->      
+    <p class="text-center">Already have an account? <a href="">Log In</a> </p>                                                                 
+</form>
+</article>
+
+
+</div>
+ <!-- card.// -->
+
+</div> 
+<!--container end.//-->
+
+
+ 
+
+<!-- <div class="card-footer text-center bg-dark bg-transparent ">
+  <i class="fa fa-quote-left fa-lg fa-pull-left fa-border " aria-hidden="true"></i>
+  <h2>     “Service to others is the rent you pay for your room here on earth.”</h2>
+  <i class="fa fa-quote-right fa-lg fa-pull-right fa-border bg-light" aria-hidden="true"></i>
+</div> -->
+
