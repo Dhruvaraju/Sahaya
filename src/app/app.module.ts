@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { Login1Component } from './login1/login1.component';
 @NgModule({
   declarations: [
     AppComponent,
-    Login1Component
+    Login1Component,
     RegistrationComponent
   ],
   imports: [
