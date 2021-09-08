@@ -7,15 +7,9 @@ import { Observable } from 'rxjs';
   })
 export class formSubmitService{
     constructor(private http:HttpClient){}
-    // url:string="https://ipotrading.herokuapp.com/";
+    url:string='https://sahaya-cs.herokuapp.com/api/v1/user/';
     
-    // onFormSubmit(formData:any) : Observable<any>{
-    //     return this.http.post<any>(this.url+'register',formData)
-    // }
-    // onLoginAttempt(loginaccept:any): Observable<any>{
-    //     return this.http.post<any>(this.url+'user/login',loginaccept)
-
-    // }
-
-
+    onFormSubmit(formData:any):Observable<any>{
+        return this.http.post<any>(this.url+'register',formData)
+    }
 }
