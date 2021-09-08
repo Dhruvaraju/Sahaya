@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+//import { RegistrationComponent } from './registration/registration.component';
 
 import { Login1Component } from './login1/login1.component';
 import { RegistrationComponent } from './registration/registration.component';

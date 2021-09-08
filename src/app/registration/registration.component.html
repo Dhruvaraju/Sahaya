@@ -2,24 +2,19 @@
   <div class="bg-image img js-fullheight" 
      style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
              ">
-      
-
-  
 <!-- <div class="card bg-dark bg-image " > -->
   
   <!-- <div class="login100-pic js-tilt image" data-tilt  >
       <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" style="width: 20; background-repeat : no-repeat;">
   </div> -->
   <article class="card-body mx-auto" style="max-width: 400px;">
-
 	<h3 class="card-title mt-3 text-center">Create Account</h3>
-
-	<form [formGroup]="registrationForm" *ngIf="!submitted" novalidate>
+  <form [formGroup]="registrationForm" *ngIf="!submitted" >
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
 		 </div>
-        <input name="" class="form-control" id="Full name" placeholder="Full name" type="text" formControlName="fullname"/>
+        <input name="" class="form-control" id="Full " placeholder="Full name" type="text" formControlName="fullname"/>
   </div>
   <div *ngIf="registrationForm.get('fullname').invalid && registrationForm.get('fullname').touched">
         <small *ngIf= "registrationForm.get('fullname').errors?.required" class="text-danger">Name is Required</small></div>
@@ -32,8 +27,7 @@
         </div>
         <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
         <small *ngIf= "registrationForm.get('email').errors?.required" class="text-danger">email is Required</small></div>
-  
-      <!-- form-group// -->
+    <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
@@ -48,6 +42,17 @@
         <small *ngIf= "registrationForm.get('phonenumber').errors?.required" class="text-danger">Phonenumber is Required</small>
         <small *ngIf= "registrationForm.get('phonenumber').errors?.minlength" class="text-danger" >phonenumber must be 10 digits</small>
       </div>
+         <!-- form-group// --> 
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+      
+      </div>
+      <select class="form-control" formControlName="employeeType">
+        <option selected="">ADMIN</option>
+        <option>USER</option>
+        </select>
+    </div>
      <!-- form-group// --> 
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -60,7 +65,8 @@
 			<option>What is the favourite place to visit?</option>
 		</select>
     <!-- <div><option selected=""> Secret Question 1</option></div> -->
-	</div> <!-- form-group end.// -->
+	</div> 
+  <!-- form-group end.// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-unlock" aria-hidden="true"></i> </span>
@@ -111,24 +117,19 @@
 		    <span class="input-group-text"> <i class="fa fa-lock fa-fw"></i> </span>
 		</div>
         <input class="form-control" placeholder="Confirm password" type="password" formControlName="cpassword"   [class.is-invlaid]="registrationForm.errors?.mismatch">
-        
       </div>
       <div *ngIf="registrationForm.get('cpassword').invalid && registrationForm.get('cpassword').touched">
         <small *ngIf= "registrationForm.get('cpassword').errors?.required" class="text-danger">confirm password is Required</small>
       </div>
-      
       <div
         *ngIf="registrationForm.errors?.mismatch"
         class="text-danger"
       >
         <small>password mismatch</small>
       </div>
-      
-
-    
     <div *ngIf="alreadyexists">
       <h5>User already exists</h5>
-      <small class="alert alert-danger"
+      <small class="text-danger"
         >Try again with different username or email!</small
       >
     </div>
@@ -141,20 +142,15 @@
     <p class="text-center">Already have an account? <a href="">Log In</a> </p>                                                                 
 </form>
 </article>
-
-
+<div *ngIf="sub" class="text-center">
+  <h3>Registration Complete</h3>
+  <p>Successfully Registered</p>
+   {{ storage}}
+  <br /><br />
+  <button class="btn btn-primary" routerLink="/login">Login</button>
+  </div>
 </div>
  <!-- card.// -->
-
 </div> 
 <!--container end.//-->
-
-
- 
-
-<!-- <div class="card-footer text-center bg-dark bg-transparent ">
-  <i class="fa fa-quote-left fa-lg fa-pull-left fa-border " aria-hidden="true"></i>
-  <h2>     “Service to others is the rent you pay for your room here on earth.”</h2>
-  <i class="fa fa-quote-right fa-lg fa-pull-right fa-border bg-light" aria-hidden="true"></i>
-</div> -->
 
