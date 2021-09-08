@@ -53,10 +53,6 @@
         <option>USER</option>
         </select>
     </div>
-
-
-
-    
      <!-- form-group// --> 
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -70,7 +66,6 @@
 		</select>
     <!-- <div><option selected=""> Secret Question 1</option></div> -->
 	</div> 
-  
   <!-- form-group end.// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -122,23 +117,17 @@
 		    <span class="input-group-text"> <i class="fa fa-lock fa-fw"></i> </span>
 		</div>
         <input class="form-control" placeholder="Confirm password" type="password" formControlName="cpassword"   [class.is-invlaid]="registrationForm.errors?.mismatch">
-        
       </div>
       <div *ngIf="registrationForm.get('cpassword').invalid && registrationForm.get('cpassword').touched">
         <small *ngIf= "registrationForm.get('cpassword').errors?.required" class="text-danger">confirm password is Required</small>
       </div>
-      
       <div
         *ngIf="registrationForm.errors?.mismatch"
         class="text-danger"
       >
         <small>password mismatch</small>
       </div>
-      
-
-      
     <div *ngIf="alreadyexists">
-      
       <h5>User already exists</h5>
       <small class="text-danger"
         >Try again with different username or email!</small
@@ -152,7 +141,6 @@
     <!-- form-group// -->      
     <p class="text-center">Already have an account? <a href="">Log In</a> </p>                                                                 
 </form>
-
 </article>
 <div *ngIf="sub" class="text-center">
   <h3>Registration Complete</h3>
@@ -161,10 +149,8 @@
   <br /><br />
   <button class="btn btn-primary" routerLink="/login">Login</button>
   </div>
-
 </div>
  <!-- card.// -->
-
 </div> 
 <!--container end.//-->
 
