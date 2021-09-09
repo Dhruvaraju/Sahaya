@@ -117,7 +117,9 @@
               <br /><br /><br />
             </div>
           </form>
-          <p class="w-100 text-center"><a href="#">Create Account </a></p>
+          <p class="w-100 text-center">
+            <a routerLink="/register">Create Account </a>
+          </p>
           <br /><br />
         </div>
       </div>
@@ -190,7 +192,7 @@
               <br /><br />
             </form>
             <p class="w-100 text-center">
-              <a>click here to login </a>
+              <a (click)="displayLoginSection()">click here to login </a>
             </p>
           </div>
         </div>
@@ -268,7 +270,7 @@
               >
             </div>
             <p class="w-100 text-center">
-              <a href="#">click here to login </a>
+              <a (click)="displayLoginSection()">click here to login </a>
             </p>
           </div>
         </div>
@@ -364,7 +366,9 @@
               >
             </div>
           </form>
-          <p class="w-100 text-center"><a href="#">click here to login </a></p>
+          <p class="w-100 text-center">
+            <a (click)="displayLoginSection()">click here to login </a>
+          </p>
         </div>
       </div>
     </div>
@@ -477,7 +481,7 @@
               </div>
             </form>
             <p class="w-100 text-center">
-              <a href="#">click here to login </a>
+              <a (click)="displayLoginSection()">click here to login </a>
             </p>
           </div>
         </div>

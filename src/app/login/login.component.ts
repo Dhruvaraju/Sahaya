@@ -118,6 +118,14 @@ export class LoginComponent implements OnInit {
     this.displayResetPassword = false;
   }
 
+  displayLoginSection() {
+    this.displayForgotPassword = false;
+    this.displayLoginForm = true;
+    this.displaySecretQuestions = false;
+    this.displayForgotEmployeeId = false;
+    this.displayResetPassword = false;
+  }
+
   /**
    * To display forgot employee id section and hide other sections
    */
