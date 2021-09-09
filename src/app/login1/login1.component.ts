@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/service/login.service';
+import { passwordValidator } from 'src/service/resetPasswordValidator';
 
 @Component({
   selector: 'app-login1',
@@ -13,14 +14,16 @@ export class Login1Component implements OnInit {
  forgotEmployeeIDStatus=false;
 forgotEmployeeIDMessage;
 forgotEmployeeIDFlag=false;
-fp=false;
-fid=false;
+enableForgotPassword=false;
+enableForgotId=false;
 forgotPasswordFlag1 = false;
 forgotPasswordFlag2 =false;
+resetPasswordFlag=false;
 secretQuestion1;
 secretQuestion2;
 secretAnswer1;
 secretAnswer2;
+secretQuestionsInvalidFlag=false;
 constructor(private fb:FormBuilder,private router:Router,private _loginservice: LoginService) { 
 
   }
@@ -29,27 +32,28 @@ constructor(private fb:FormBuilder,private router:Router,private _loginservice: 
     password:['',[Validators.required]],
 
   });
-
   forgotPasswordForm1=this.fb.group({
     empID:['',Validators.required]
     });
-
-
     forgotEmpForm=this.fb.group({
       emailID:['',Validators.required]
     });
-
-
     secretQuestionsForm=this.fb.group({
       secretA1:['',Validators.required],
       secretA2:['',Validators.required]
-
-    })
+    });
+    resetPasswordForm=this.fb.group({
+      nPassword:['',[Validators.required,Validators.pattern('(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}')]],
+      cPassword:['',[Validators.required,Validators.pattern('(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}')]]
+    },
+    {validator:passwordValidator}
+    );
   ngOnInit(): void {
   }
   onLogin(){
    //  this.router.navigate(['/login1']);
     console.log("Redirecting")
+   
     let loginaccept={
       userName:this.loginForm1.get('EmployeeID').value,
       password:this.loginForm1.get('password').value,
@@ -74,8 +78,8 @@ constructor(private fb:FormBuilder,private router:Router,private _loginservice: 
 }
 
 forgotPassword(){
-  this.fp=true;
-  console.log(this.fp);
+  this.enableForgotPassword=true;
+  console.log(this.enableForgotPassword);
 }
 
 
@@ -91,7 +95,8 @@ onForgotPassword(){
     data=>{console.log('Success',data);
   if(data.secretQn1===null){
     this.forgotPasswordFlag1=true;
-  }else {this.forgotPasswordFlag2=true;
+  }else {
+    this.forgotPasswordFlag2=true;
   this.secretQuestion1=data.secretQn1;
   this.secretQuestion2=data.secretQn2;
   this.secretAnswer1=data.secretAn1;
@@ -108,7 +113,7 @@ scroll(el: HTMLElement) {
 }
 
 forgotID(){
-  this.fid=true;
+  this.enableForgotId=true;
   console.log("Forgot EmployeeID")
 }
 onForgotEMPID(){
@@ -130,6 +135,31 @@ onForgotEMPID(){
     }
   },
      error=>console.log('Error',error)
+  )
+}
+onSecretAnswersValidation()
+{
+  if((this.secretQuestionsForm.get('secretA1').value === this.secretAnswer1)&&(this.secretQuestionsForm.get('secretA2').value === this.secretAnswer2))
+  {
+      console.log("Given Secret Answers are matchig");
+      this.resetPasswordFlag=true;
+  }
+  else{
+      this.secretQuestionsInvalidFlag=true;
+      console.log("No match");
+  }
+}
+onResetPasswordValidation()
+{
+  let newPasswordValue={
+    userName:this.forgotPasswordForm1.get('empID').value,
+    password:this.resetPasswordForm.get('nPassword').value
+    
+    // confirmPassword:this.resetPasswordForm.get('cPassword').value
+  }
+  this._loginservice.resetPassword(newPasswordValue).subscribe(
+    (data)=>{console.log('success',data)}
+   
   )
 }
 }

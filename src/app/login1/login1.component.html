@@ -1,8 +1,7 @@
+<!--Login Page-->
 <body id="by" class="img js-fullheight"
     style="background-image: url(../../assets/bg.jpg);background-size: cover;background-attachment: fixed; opacity:1">
-    <!-- <div class="container-fluid"> -->
     <section class="ftco-section">
-        <!-- <div class="container-login100"> -->
         <div class="row justify-content-center">
             <div class="col-md-10 text-center mb-15">
                 <h2 class="heading-section">Login</h2>
@@ -27,8 +26,6 @@
                                     <small *ngIf="loginForm1.get('EmployeeID').errors?.maxlength" class="text-warning"
                                         style="font-size:medium;">**EmployeeID must be 6 digits**</small></span>
                             </div>
-
-
                         </div>
                         <div class="form-group" data-validate="Password is required">
                             <input id="password-field" type="password" class="form-control" placeholder="Password"
@@ -37,7 +34,6 @@
                                 <small class="text-warning" style="font-size:medium;">**Password Field is
                                     Required**</small>
                             </div>
-                            <!-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
                         </div><br>
                         <div class="form-group">
                             <button type="button" class="form-control btn btn-primary submit px-3"
@@ -48,43 +44,30 @@
                             <small class="text-warning" style="font-size:medium;">&nbsp;** Invalid Credentials
                                 **&nbsp;</small>
                         </div>
-
-
                         <div class="form-group d-md-flex">
                             <div class="w-50 text-md-left">
-                                <a href="#u1" style="color:#fff" (click)="forgotID()">Forgot EmployeeID</a>
+                               
+                                <a href="#u1" style="color:#fff"  (click)="forgotID()">Forgot EmployeeID</a>
                             </div>
                             <div class="w-50 text-md-right">
                                 <a href="#u" style="color:#fff" (click)="forgotPassword()">Forgot Password</a>
-
-
                             </div>
                             <br><br><br>
                         </div>
-                        <!-- <div class="w-50 text-md-center">
-                    <a href="#" style="color:#fff">Create an account</a>
-                </div> -->
                     </form>
                     <p class="w-100 text-center"><a href="#">Create Account </a></p><br><br>
                 </div>
             </div>
         </div>
-        <!-- </div> -->
+       
     </section>
-    <!-- </div> -->
-    <!-- </body> -->
-
 </body>
 
 <!--- Forgot Password-->
-<!-- <div id="n"> -->
 <div id="u">
-
-    <body *ngIf=fp class="img js-fullheight"
+    <body  *ngIf=enableForgotPassword class="img js-fullheight"
         style="background-image: url(../../assets/bg.jpg);background-size: cover;background-attachment: fixed;">
-        <!-- <div class="container-fluid"> -->
         <section class="ftco-section">
-            <!-- <div class="container-login100"> -->
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center mb-15">
                     <h2 class="heading-section">Forgot Password</h2><br><br>
@@ -94,8 +77,6 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
                         <h3 class="mb-4 text-center">Enter Your EmployeeID</h3>
-
-
                         <form class="signin-form" [formGroup]="forgotPasswordForm1">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="employeeID" required
@@ -105,51 +86,35 @@
                                     <small *ngIf="forgotPasswordForm1.get('empID').errors?.required"
                                         class="text-warning" style="font-size:medium;">**EmployeeID is
                                         Required**</small>
-
                                 </div>
-
-
                             </div>
                             <div class="form-group">
+                                <a href="#sq">
                                 <button type="button" class="form-control btn btn-primary submit px-3"
                                     (click)="onForgotPassword()" [disabled]="forgotPasswordForm1.invalid">Reset
                                     Password</button>
+                                </a>
                             </div>
                             <div *ngIf=forgotPasswordFlag1>
                                 <small class="text-warning" style="font-size:medium;"> **invalid EmployeeID** </small>
                             </div>
                             <br><br>
-                            <!-- <div class="w-50 text-md-center">
-                <a href="#" style="color:#fff">Create an account</a>
-            </div> -->
-
-                            <!-- <div *ngIf=forgotPasswordFlag1>
-            <small class="text-warning" style="font-size:medium;"> **invalid EmployeeID** </small>
-        </div> -->
                         </form>
-
-
                         <p class="w-100 text-center"><a href="#">click here to login </a></p>
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
         </section>
-        <!-- </div> -->
     </body>
 </div>
 
-<!-- </div> -->
 
 
+ <!--     Forgor EmployeeID   -->
 <div id="u1">
-    <!--     Forgor EmployeeID   -->
-
-    <body *ngIf=fid class="img js-fullheight"
+    <body *ngIf=enableForgotId class="img js-fullheight"
         style="background-image: url(../../assets/bg.jpg);background-size: cover;background-attachment: fixed;">
-        <!-- <div class="container-fluid"> -->
         <section class="ftco-section">
-            <!-- <div class="container-login100"> -->
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center mb-15">
                     <h2 class="heading-section">Forgot EmployeeID</h2><br><br>
@@ -159,8 +124,6 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
                         <h3 class="mb-4 text-center">Enter Your EmailID</h3>
-
-
                         <form class="signin-form" [formGroup]="forgotEmpForm">
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="EmailID" required
@@ -169,10 +132,7 @@
                                     *ngIf="forgotEmpForm.get('emailID').invalid && forgotEmpForm.get('emailID').touched">
                                     <small *ngIf="forgotEmpForm.get('emailID').errors?.required" class="text-warning"
                                         style="font-size:medium;">**EmailID is Required**</small>
-
                                 </div>
-
-
                             </div>
                             <div class="form-group">
                                 <button type="button" class="form-control btn btn-primary submit px-3"
@@ -183,30 +143,15 @@
                                     **&nbsp;</small>
                             </div>
                             <br><br>
-                            <!-- <div class="w-50 text-md-center">
-                <a href="#" style="color:#fff">Create an account</a>
-            </div> -->
                         </form>
-
-
-                        {{forgotEmployeeIDMessage}}
-
                         <div *ngIf=forgotEmployeeIDFlag>
                             <small class="text-warning" style="font-size:medium;">Your Employee ID
                                 {{forgotEmployeeIDMessage}}</small>
                         </div>
-
-
-
-
-
                         <p class="w-100 text-center"><a href="#">click here to login </a></p>
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
-
-
         </section>
 
     </body>
@@ -216,13 +161,9 @@
 
 
 <!-- For Secret Questions-->
-<!-- <div #target> -->
-
-<body *ngIf=forgotPasswordFlag2 class="img js-fullheight"
+<body id = "sq" *ngIf=forgotPasswordFlag2 class="img js-fullheight"
     style="background-image: url(../../assets/bg.jpg);background-size: cover;background-attachment: fixed;">
-    <!-- <div class="container-fluid"> -->
     <section class="ftco-section">
-        <!-- <div class="container-login100"> -->
         <div class="row justify-content-center">
             <div class="col-md-10 text-center mb-15">
                 <h2 class="heading-section">Secret Questions</h2><br><br>
@@ -232,8 +173,6 @@
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
                     <h3 class="mb-4 text-center">Answer them to reset your password</h3>
-
-
                     <form class="signin-form" [formGroup]="secretQuestionsForm">
                         <div class="form-group">
                             {{secretQuestion1}}
@@ -253,33 +192,90 @@
                                 *ngIf="secretQuestionsForm.get('secretA2').invalid && secretQuestionsForm.get('secretA2').touched">
                                 <small *ngIf="secretQuestionsForm.get('secretA2').errors?.required" class="text-warning"
                                     style="font-size:medium;">**Answer is required**</small>
-
-
                             </div>
-
-
                         </div>
+                        
                         <div class="form-group">
+                            <a href="#rp">
                             <button type="button" class="form-control btn btn-primary submit px-3"
-                                (click)="onForgotPassword()" [disabled]="forgotPasswordForm1.invalid">Confirm Answers
+                                (click)="onSecretAnswersValidation()" [disabled]="secretQuestionsForm.invalid">Confirm Answers
                                 </button>
+
+                            </a>
                         </div>
-                        <br><br>
-                        <!-- <div class="w-50 text-md-center">
-                <a href="#" style="color:#fff">Create an account</a>
-            </div> -->
-
-
+                        <div *ngIf=secretQuestionsInvalidFlag>
+                            <small class="text-warning" style="font-size:medium;">&nbsp;** Invalid Answers
+                                **&nbsp;</small>
+                        </div>
                     </form>
-
-
                     <p class="w-100 text-center"><a href="#">click here to login </a></p>
                 </div>
             </div>
         </div>
-        <!-- </div> -->
-    </section>
-    <!-- </div> -->
+       
+    </section>  
 </body>
 
-<!-- </div> -->
+<!--- Resetting New Passsword-->
+
+<div>
+
+    <body *ngIf=resetPasswordFlag class="img js-fullheight" id="rp"
+        style="background-image: url(../../assets/bg.jpg);background-size: cover;background-attachment: fixed;">
+        <section class="ftco-section">
+            <div class="row justify-content-center">
+                <div class="col-md-10 text-center mb-15">
+                    <h2 class="heading-section">Reset Password</h2><br><br>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Change your Password here</h3>
+                        <form class="signin-form" [formGroup]="resetPasswordForm">
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" required
+                                    formControlName="nPassword" name="nPassword">
+                                <div
+                                    *ngIf="resetPasswordForm.get('nPassword').invalid && resetPasswordForm.get('nPassword').touched">
+                                    <small *ngIf="resetPasswordForm.get('nPassword').errors?.required"
+                                        class="text-warning" style="font-size:medium;">**password is
+                                        Required**</small>
+                                        <small *ngIf="resetPasswordForm.get('nPassword').errors?.pattern" class="text-warning"
+                                        style="font-size:medium;">**Password must be 8 digits<br>And should contain numbers,alphabets,Special characters<br>and atleast on Capital Letter**</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" required
+                                    formControlName="cPassword" name="cPassword">
+                                <div
+                                    *ngIf="resetPasswordForm.get('cPassword').invalid && resetPasswordForm.get('cPassword').touched">
+                                    <small *ngIf="resetPasswordForm.get('cPassword').errors?.required"
+                                        class="text-warning" style="font-size:medium;">**Confirm password is
+                                        Required**</small>
+
+
+                                        <small *ngIf="resetPasswordForm.get('cPassword').errors?.pattern" class="text-warning"
+                                        style="font-size:medium;">**Password must be 8 digits<br>And should contain numbers,alphabets,Special characters<br>and atleast on Capital Letter**</small>
+
+                                </div>
+                            </div>
+
+                          <div *ngIf="resetPasswordForm.errors?.mismatch">
+                            <small class="text-warning" style="font-size:medium;">&nbsp;** Password Missmatch
+                                **&nbsp;</small>
+                        </div>
+                            <div class="form-group">
+                               
+                                <button type="button" class="form-control btn btn-primary submit px-3"
+                                    (click)="onResetPasswordValidation()" [disabled]="resetPasswordForm.invalid">Reset
+                                    Password</button>
+                            </div>
+                        </form>
+                        <p class="w-100 text-center"><a href="#">click here to login </a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</div>

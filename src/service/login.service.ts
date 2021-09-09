@@ -20,6 +20,9 @@ export class LoginService {
   {
     return this._http.post<any>(this._url+'/creds',passworddata);
   }
-
+  resetPassword(newPasswordData:any)
+  {
+    return this._http.post<any>(this._url+'/resetPassword',newPasswordData);
+  }
 
 }
