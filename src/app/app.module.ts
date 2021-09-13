@@ -8,16 +8,15 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 //import { HttpClientModule } from '@angular/common/http';
 
-
-import { Login1Component } from './login1/login1.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { MenubarComponent } from './menubar/menubar.component';
+import { FooterComponent } from './footer/footer.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    Login1Component,
-    RegistrationComponent
-  ],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, DashboardComponent, HomeComponent, MenubarComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +25,6 @@ import { Login1Component } from './login1/login1.component';
     //  NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

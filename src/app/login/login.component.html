@@ -1,0 +1,491 @@
+<!--Login Page-->
+<body
+  id="by"
+  class="img js-fullheight"
+  style="
+    background-image: url(../../assets/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 1;
+  "
+  *ngIf="displayLoginForm"
+>
+  <section class="ftco-section">
+    <div class="row justify-content-center">
+      <div class="col-md-10 text-center mb-15">
+        <h2 class="heading-section">Login</h2>
+      </div>
+    </div>
+    <!-- Login Section Start -->
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-wrap p-0">
+          <h3 class="mb-4 text-center">Have an account?</h3>
+          <form [formGroup]="loginForm">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="EmployeeID"
+                required
+                formControlName="EmployeeID"
+                name="EmployeeID"
+              />
+              <div
+                *ngIf="
+                  loginForm.get('EmployeeID').invalid &&
+                  loginForm.get('EmployeeID').touched
+                "
+              >
+                <span>
+                  <small
+                    *ngIf="loginForm.get('EmployeeID').errors?.required"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**EmployeeID is Required**</small
+                  >
+                  <small
+                    *ngIf="loginForm.get('EmployeeID').errors?.minlength"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**EmployeeID must be 6 digits**</small
+                  ><br />
+                  <small
+                    *ngIf="loginForm.get('EmployeeID').errors?.pattern"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**EmployeeID must in Numbers**</small
+                  ><br />
+                  <small
+                    *ngIf="loginForm.get('EmployeeID').errors?.maxlength"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**EmployeeID must be 6 digits**</small
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="form-group" data-validate="Password is required">
+              <input
+                id="password-field"
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                required
+                formControlName="password"
+                name="password"
+              />
+              <div
+                *ngIf="
+                  loginForm.get('password').invalid &&
+                  loginForm.get('password').touched
+                "
+              >
+                <small class="text-warning" style="font-size: medium"
+                  >**Password Field is Required**</small
+                >
+              </div>
+            </div>
+            <br />
+            <div class="form-group">
+              <button
+                type="button"
+                class="form-control btn btn-primary submit px-3"
+                [disabled]="loginForm.invalid"
+                (click)="loginFormSubmission()"
+              >
+                Sign In
+              </button>
+            </div>
+
+            <div *ngIf="authenticateMessage">
+              <small class="text-warning" style="font-size: medium"
+                >&nbsp;** Invalid Credentials **&nbsp;</small
+              >
+            </div>
+            <div class="form-group d-md-flex">
+              <div class="w-50 text-md-left">
+                <a class="btn btn-link" (click)="enableForgotIdSection()"
+                  >Forgot EmployeeID</a
+                >
+              </div>
+              <div class="w-50 text-md-right">
+                <a class="btn btn-link" (click)="enableForgotPasswordSection()"
+                  >Forgot Password</a
+                >
+              </div>
+              <br /><br /><br />
+            </div>
+          </form>
+          <p class="w-100 text-center">
+            <a routerLink="/register">Create Account </a>
+          </p>
+          <br /><br />
+        </div>
+      </div>
+    </div>
+    <!-- Login Section End -->
+  </section>
+</body>
+
+<!--- Forgot Password-->
+<div id="u">
+  <body
+    *ngIf="displayForgotPassword"
+    class="img js-fullheight"
+    style="
+      background-image: url(../../assets/bg.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+    "
+  >
+    <section class="ftco-section">
+      <div class="row justify-content-center">
+        <div class="col-md-10 text-center mb-15">
+          <h2 class="heading-section">Forgot Password</h2>
+          <br /><br />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap p-0">
+            <h3 class="mb-4 text-center">Enter Your EmployeeID</h3>
+            <form class="signin-form" [formGroup]="forgotPasswordForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="employeeID"
+                  required
+                  formControlName="empID"
+                  name="empID"
+                />
+                <div
+                  *ngIf="
+                    forgotPasswordForm.get('empID').invalid &&
+                    forgotPasswordForm.get('empID').touched
+                  "
+                >
+                  <small
+                    *ngIf="forgotPasswordForm.get('empID').errors?.required"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**EmployeeID is Required**</small
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="form-control btn btn-primary submit px-3"
+                  (click)="validateEmployeeInvoked()"
+                  [disabled]="forgotPasswordForm.invalid"
+                >
+                  Validate EmployeeId
+                </button>
+              </div>
+              <div *ngIf="inValidEmpIdErrorMessage">
+                <small class="text-warning" style="font-size: medium">
+                  **invalid EmployeeID**
+                </small>
+              </div>
+              <br /><br />
+            </form>
+            <p class="w-100 text-center">
+              <a (click)="displayLoginSection()">click here to login </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</div>
+
+<!--     Forgot EmployeeID   -->
+<div id="u1">
+  <body
+    *ngIf="displayForgotEmployeeId"
+    class="img js-fullheight"
+    style="
+      background-image: url(../../assets/bg.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+    "
+  >
+    <section class="ftco-section">
+      <div class="row justify-content-center">
+        <div class="col-md-10 text-center mb-15">
+          <h2 class="heading-section">Forgot EmployeeID</h2>
+          <br /><br />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap p-0">
+            <h3 class="mb-4 text-center">Enter Your EmailID</h3>
+            <form class="signin-form" [formGroup]="forgotEmpForm">
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="EmailID"
+                  required
+                  formControlName="emailID"
+                  name="emailID"
+                />
+                <div
+                  *ngIf="
+                    forgotEmpForm.get('emailID').invalid &&
+                    forgotEmpForm.get('emailID').touched
+                  "
+                >
+                  <small
+                    *ngIf="forgotEmpForm.get('emailID').errors?.required"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**EmailID is Required**</small
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="form-control btn btn-primary submit px-3"
+                  (click)="onForgotEMPID()"
+                  [disabled]="forgotEmpForm.invalid"
+                >
+                  Get EmployeeID
+                </button>
+              </div>
+              <div *ngIf="forgotEmployeeIDStatus">
+                <small class="text-warning" style="font-size: medium"
+                  >&nbsp;** Invalid EmailID **&nbsp;</small
+                >
+              </div>
+              <br /><br />
+            </form>
+            <div *ngIf="forgotEmployeeIDFlag">
+              <small class="text-warning" style="font-size: medium"
+                >Your Employee ID {{ forgotEmployeeIDMessage }}</small
+              >
+            </div>
+            <p class="w-100 text-center">
+              <a (click)="displayLoginSection()">click here to login </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</div>
+
+<!-- For Secret Questions-->
+<body
+  id="sq"
+  *ngIf="displaySecretQuestions"
+  class="img js-fullheight"
+  style="
+    background-image: url(../../assets/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+  "
+>
+  <section class="ftco-section">
+    <div class="row justify-content-center">
+      <div class="col-md-10 text-center mb-15">
+        <h2 class="heading-section">Secret Questions</h2>
+        <br /><br />
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-wrap p-0">
+          <h3 class="mb-4 text-center">Answer them to reset your password</h3>
+          <form class="signin-form" [formGroup]="secretQuestionsForm">
+            <div class="form-group">
+              {{ secretQuestion1 }}
+              <input
+                type="text"
+                class="form-control"
+                placeholder="type your Answer"
+                required
+                formControlName="secretA1"
+                name="secretA1"
+              />
+              <div
+                *ngIf="
+                  secretQuestionsForm.get('secretA1').invalid &&
+                  secretQuestionsForm.get('secretA1').touched
+                "
+              >
+                <small
+                  *ngIf="secretQuestionsForm.get('secretA1').errors?.required"
+                  class="text-warning"
+                  style="font-size: medium"
+                  >**Answer is required**</small
+                >
+              </div>
+              <br />
+              {{ secretQuestion2 }}
+              <input
+                type="text"
+                class="form-control"
+                placeholder="type your Answer"
+                required
+                formControlName="secretA2"
+                name="secretA2"
+              />
+              <div
+                *ngIf="
+                  secretQuestionsForm.get('secretA2').invalid &&
+                  secretQuestionsForm.get('secretA2').touched
+                "
+              >
+                <small
+                  *ngIf="secretQuestionsForm.get('secretA2').errors?.required"
+                  class="text-warning"
+                  style="font-size: medium"
+                  >**Answer is required**</small
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button
+                type="button"
+                class="form-control btn btn-primary submit px-3"
+                (click)="onSecretAnswersValidation()"
+                [disabled]="secretQuestionsForm.invalid"
+              >
+                Confirm Answers
+              </button>
+            </div>
+            <div *ngIf="secretQuestionsInvalidFlag">
+              <small class="text-warning" style="font-size: medium"
+                >&nbsp;** Invalid Answers **&nbsp;</small
+              >
+            </div>
+          </form>
+          <p class="w-100 text-center">
+            <a (click)="displayLoginSection()">click here to login </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+<!--- Resetting New Password-->
+
+<div>
+  <body
+    *ngIf="displayResetPassword"
+    class="img js-fullheight"
+    id="rp"
+    style="
+      background-image: url(../../assets/bg.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+    "
+  >
+    <section class="ftco-section">
+      <div class="row justify-content-center">
+        <div class="col-md-10 text-center mb-15">
+          <h2 class="heading-section">Reset Password</h2>
+          <br /><br />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap p-0">
+            <h3 class="mb-4 text-center">Change your Password here</h3>
+            <form class="signin-form" [formGroup]="resetPasswordForm">
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                  formControlName="nPassword"
+                  name="nPassword"
+                />
+                <div
+                  *ngIf="
+                    resetPasswordForm.get('nPassword').invalid &&
+                    resetPasswordForm.get('nPassword').touched
+                  "
+                >
+                  <small
+                    *ngIf="resetPasswordForm.get('nPassword').errors?.required"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**password is Required**</small
+                  >
+                  <small
+                    *ngIf="resetPasswordForm.get('nPassword').errors?.pattern"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**Password must be 8 digits<br />And should contain
+                    numbers,alphabets,Special characters<br />and atleast on
+                    Capital Letter**</small
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                  formControlName="cPassword"
+                  name="cPassword"
+                />
+                <div
+                  *ngIf="
+                    resetPasswordForm.get('cPassword').invalid &&
+                    resetPasswordForm.get('cPassword').touched
+                  "
+                >
+                  <small
+                    *ngIf="resetPasswordForm.get('cPassword').errors?.required"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**Confirm password is Required**</small
+                  >
+
+                  <small
+                    *ngIf="resetPasswordForm.get('cPassword').errors?.pattern"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**Password must be 8 digits<br />And should contain
+                    numbers,alphabets,Special characters<br />and atleast on
+                    Capital Letter**</small
+                  >
+                </div>
+              </div>
+
+              <div *ngIf="resetPasswordForm.errors?.mismatch">
+                <small class="text-warning" style="font-size: medium"
+                  >&nbsp;** Password Missmatch **&nbsp;</small
+                >
+              </div>
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="form-control btn btn-primary submit px-3"
+                  (click)="onResetPasswordValidation()"
+                  [disabled]="resetPasswordForm.invalid"
+                >
+                  Reset Password
+                </button>
+              </div>
+            </form>
+            <p class="w-100 text-center">
+              <a (click)="displayLoginSection()">click here to login </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</div>
