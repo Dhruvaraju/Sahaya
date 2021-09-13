@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
     {
       fullname: ['', [Validators.required,Validators.minLength(6)]],
       email: ['', Validators.required],
-      employeeType:['',Validators.required],
+      // employeeType:['',Validators.required],
       phonenumber: ['',[ Validators.required, Validators.maxLength(10),Validators.minLength(10)]],
       question1: ['', Validators.required],
       answer1: ['', Validators.required],
@@ -41,7 +41,7 @@ export class RegistrationComponent implements OnInit {
       let formData = {
       name: this.registrationForm.get('fullname').value,
       email: this.registrationForm.get('email').value,
-      employeeType: this.registrationForm.get('employeeType').value,
+      // employeeType: this.registrationForm.get('employeeType').value,
       contactNo: this.registrationForm.get('phonenumber').value,
       secretQn1: this.registrationForm.get('question1').value,
       secretAn1: this.registrationForm.get('answer1').value,

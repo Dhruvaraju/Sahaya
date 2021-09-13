@@ -1,12 +1,8 @@
-<div class="container-fluid ps-md-0 ">
-  <div class="bg-image img js-fullheight" 
-     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
-             ">
-<!-- <div class="card bg-dark bg-image " > -->
-  
-  <!-- <div class="login100-pic js-tilt image" data-tilt  >
-      <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" style="width: 20; background-repeat : no-repeat;">
-  </div> -->
+<div *ngIf=!sub class="container-fluid ps-md-0 ">
+  <div class="bg">
+  <!-- <div class="bg-image img js-fullheight" 
+      style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+             "> --> 
   <article class="card-body mx-auto" style="max-width: 400px;">
 	<h3 class="card-title mt-3 text-center">Create Account</h3>
   <form [formGroup]="registrationForm" *ngIf="!submitted" >
@@ -43,7 +39,7 @@
         <small *ngIf= "registrationForm.get('phonenumber').errors?.minlength" class="text-danger" >phonenumber must be 10 digits</small>
       </div>
          <!-- form-group// --> 
-      <div class="form-group input-group">
+      <!-- <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
       
@@ -52,7 +48,7 @@
         <option selected="">ADMIN</option>
         <option>USER</option>
         </select>
-    </div>
+    </div> -->
      <!-- form-group// --> 
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -139,18 +135,26 @@
         <button type="button" class="btn btn-primary btn-block" (click)="onsubmit()" [disabled]="registrationForm.invalid"> Create Account  </button>
         </div>
     <!-- form-group// -->      
-    <p class="text-center">Already have an account? <a href="">Log In</a> </p>                                                                 
+    <h5 class="text-center"> Have an account? <a href="">Log In</a> </h5>                                                                 
 </form>
+
+
 </article>
-<div *ngIf="sub" class="text-center">
-  <h3>Registration Complete</h3>
-  <p>Successfully Registered</p>
-   {{ storage}}
-  <br /><br />
-  <button class="btn btn-primary" routerLink="/login">Login</button>
-  </div>
+
 </div>
  <!-- card.// -->
 </div> 
 <!--container end.//-->
-
+<div class="bg-image img js-fullheight" 
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+             "  >
+             <div *ngIf="sub" class="bg text-center">
+  <br><br><br><br><br><br>
+  <h3>Registration Successfull</h3>
+  <br><br>
+   {{ storage}}
+  <br /><br /><br>
+  <button class="btn btn-primary" routerLink="/login1">Login</button>
+  
+  </div>
+</div>
