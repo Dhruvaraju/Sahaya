@@ -35,10 +35,12 @@ export class LoginComponent implements OnInit {
     EmployeeID: [
       '',
       [
+       [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(6),
         Validators.pattern('[0-9]*'),
+      ]
       ],
     ],
     password: ['', [Validators.required]],
