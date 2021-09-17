@@ -34,14 +34,14 @@ export class LoginComponent implements OnInit {
   loginForm = this.formBuilder.group({
     EmployeeID: [
       '',
-      [
+      
        [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(6),
         Validators.pattern('[0-9]*'),
       ]
-      ],
+      ,
     ],
     password: ['', [Validators.required]],
   });
@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
         ],
       ],
     },
-    { validator: passwordValidator }
+     { validator: passwordValidator }
   );
   ngOnInit(): void {
     this.displayLoginForm = true;
@@ -96,9 +96,11 @@ export class LoginComponent implements OnInit {
         if (data.authenticated === true) {
           console.log('Logged in successfully');
           //console.log()
-          localStorage.setItem('EmployeeID', data.userName);
-          console.log(localStorage.getItem(data.userName));
-          console.log('Success', data);
+          localStorage.setItem('employeeID', data.employeeId);
+          localStorage.setItem('employeeType',data.employeeType);
+          console.log(localStorage.getItem('employeeID'));
+          console.log(localStorage.getItem('employeeType'));
+          console.log('Success data values are ', data);
           this.router.navigate(['/dashboard']);
         } else {
           this.authenticateMessage = true;

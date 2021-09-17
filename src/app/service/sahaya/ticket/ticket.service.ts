@@ -14,4 +14,18 @@ export class TicketService {
   totalTicketsOpened():Observable<any> {
     return this.http.get<any>(this.serverUrl+'active');
   }
+  // ticketStatusUpdatedFromAssignState(ticketDetails:any){
+   ticketStatusUpdatedFromNewState(ticketDetails:any){
+    return this.http.post<any>(this.serverUrl+'update',ticketDetails);
+
+  }
+  ticketStatusUpdatedFromInprogressState(ticketDetails:any){
+    return this.http.post<any>(this.serverUrl+'update',ticketDetails);
+
+  }
+  ticketStatusUpdatedFromVerifiedState(ticketDetails:any){
+    return this.http.post<any>(this.serverUrl+'update',ticketDetails);
+
+  }
+  
 }
