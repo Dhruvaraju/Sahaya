@@ -143,6 +143,7 @@ export class DashboardComponent implements OnInit {
         }
         else if(data[i].ticketStatus==="CLOSED")
         {
+          console.log("=====Closed Ticket Details=========")
           this.arrayOfClosedTickets[this.countOfClosedTickets]=data[i];
           if(localStorage.getItem('employeeType')==='ADMIN')
           {
