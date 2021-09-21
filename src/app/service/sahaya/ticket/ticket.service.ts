@@ -16,6 +16,7 @@ export class TicketService {
   }
   // ticketStatusUpdatedFromAssignState(ticketDetails:any){
    ticketStatusUpdatedFromNewState(ticketDetails:any){
+     
     return this.http.post<any>(this.serverUrl+'update',ticketDetails);
 
   }

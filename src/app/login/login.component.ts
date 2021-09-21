@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/sahaya/user/user.service';
 import { passwordValidator } from 'src/app/service/validators/resetPasswordValidator';
+import { convertCompilerOptionsFromJson } from 'typescript';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   secretAnswer1;
   secretAnswer2;
   secretQuestionsInvalidFlag = false;
+  resetPasswordSuccessFullFlag=false;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -211,9 +213,14 @@ export class LoginComponent implements OnInit {
    */
   onResetPasswordValidation() {
     let resetPasswordRequest = {
-      userName: this.forgotPasswordForm.get('empID').value,
+      employeeId: this.forgotPasswordForm.get('empID').value,
       password: this.resetPasswordForm.get('nPassword').value,
     };
-    this._userService.resetPassword(resetPasswordRequest).subscribe((data) => {});
+    console.log(this.forgotPasswordForm.get('empID').value, this.resetPasswordForm.get('nPassword').value)
+    this._userService.resetPassword(resetPasswordRequest).subscribe(
+      data=>{console.log('success',data);
+      this.resetPasswordSuccessFullFlag=true;},
+      error=>{console.log('error',error)}
+    );
   }
 }

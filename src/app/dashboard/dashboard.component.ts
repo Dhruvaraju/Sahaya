@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(
   ): any {
     //console.log("Total tickets");
-    this._ticketService.totalTicketsOpened().subscribe(
+      this._ticketService.totalTicketsOpened().subscribe(
       (data)=>{console.log("total tickets data ",data);
         console.log(data.length);
       for(let i = 0; i < data.length;i++)
@@ -234,8 +234,8 @@ export class DashboardComponent implements OnInit {
     console.log(this.newTicketDetailsDisplayForm.get('ticketStatus').value," is the ticket status");
 
     this._ticketService.ticketStatusUpdatedFromNewState(newTicketDetails).subscribe(
-      (data)=>{console.log('Sussecc',data)},
-      (error)=>{console.log('error',error)}
+      (data)=>{console.log('Sussecc',data),console.log("SUCCESSSSSSSSSSS")},
+      (error)=>{console.log('error',error),console.log("ERRORRRRRRRRRRRRR")}
     )
     }
   }
@@ -264,8 +264,8 @@ export class DashboardComponent implements OnInit {
       }
 
       this._ticketService.ticketStatusUpdatedFromNewState(assignedTicketDetails).subscribe(
-        (data)=>{console.log('Sucess',data)},
-        (error)=>{console.log('error',error)}
+        (data)=>{console.log('Sucess',data),console.log("Successssssss")},
+        (error)=>{console.log('error',error),console.log("Errorrrr")}
       )  
     }
   }
@@ -286,11 +286,11 @@ export class DashboardComponent implements OnInit {
       employeeId:employeeId,
       employeeName:employeeName,
       messageToUser:messageToUser
-    }
+    }  
     this._ticketService.ticketStatusUpdatedFromInprogressState(assignedTicketDetails).subscribe(
-      (data)=>{console.log('Sucess',data)},
-      (error)=>{console.log('error',error)}
-    )  
+      (data)=>{console.log('Sucess',data),console.log("successss")},
+      (error)=>{console.log('error',error),console.log("errorrrrrrr")}
+    )
   
   }
 }
@@ -313,8 +313,8 @@ updateTicketDetailsFromVerifiedState(ticketIDValue,ticketStatus,ticketSeverity,e
       messageToUser:messageToUser
     }
     this._ticketService.ticketStatusUpdatedFromVerifiedState(assignedTicketDetails).subscribe(
-      (data)=>{console.log('Sucess',data)},
-      (error)=>{console.log('error',error)}
+      (data)=>{console.log('Sucess',data),console.log("Sucessssssss")},
+      (error)=>{console.log('error',error),console.log("errorrrrrrr")}
     )  
   
   }
@@ -336,11 +336,11 @@ updateTicketDetailsFromPendingState(ticketIDValue,ticketStatus,ticketSeverity,em
       employeeId:employeeId,
       employeeName:employeeName,
       messageToUser:messageToUser
-    }
+    }   
     this._ticketService.ticketStatusUpdatedFromVerifiedState(assignedTicketDetails).subscribe(
-      (data)=>{console.log('Sucess',data)},
-      (error)=>{console.log('error',error)}
-    )  
+      (data)=>{console.log('Sucess',data),console.log("successssssss")},
+       (error)=>{console.log('error',error),console.log("Errorrrrrrr")}
+    )
   
   }
 }
