@@ -98,6 +98,14 @@ export class LoginComponent implements OnInit {
         if (data.authenticated === true) {
           console.log('Logged in successfully');
           //console.log()
+          localStorage.setItem('EmployeeID', data.employeeId);
+          localStorage.setItem('EmployeeType',data.employeeType);
+          localStorage.setItem('eName',data.employeeName);
+          console.log('==========',localStorage.getItem("eName"));
+          console.log('******************',data.employeeName);
+          console.log(localStorage.getItem(data.employeeId));
+          console.log('Success', data);
+          
           localStorage.setItem('employeeID', data.employeeId);
           localStorage.setItem('employeeType',data.employeeType);
           console.log(localStorage.getItem('employeeID'));
@@ -162,7 +170,6 @@ export class LoginComponent implements OnInit {
           this.displayLoginForm = false;
           this.displayForgotEmployeeId = false;
           this.displayResetPassword = false;
-
           this.secretQuestion1 = res.secretQn1;
           this.secretQuestion2 = res.secretQn2;
           this.secretAnswer1 = res.secretAn1;

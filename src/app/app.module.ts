@@ -13,10 +13,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { FooterComponent } from './footer/footer.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, DashboardComponent, HomeComponent, MenubarComponent, FooterComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, DashboardComponent, HomeComponent, MenubarComponent, FooterComponent, EmployeeProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
