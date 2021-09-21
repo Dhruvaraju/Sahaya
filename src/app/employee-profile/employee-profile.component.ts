@@ -23,7 +23,7 @@ export class EmployeeProfileComponent implements OnInit {
   constructor(private fb:FormBuilder,private empupdate : UserService) { }
   employeeForm = this.fb.group(
     {
-      
+      employeeId:  localStorage.getItem('EmployeeID'),
       name: ['', Validators.required],
      
       contactNo: [
@@ -48,7 +48,7 @@ export class EmployeeProfileComponent implements OnInit {
       ],
       cpassword: ['', Validators.required],
       // currentpassword: ['', Validators.required],
-      employeeid: ['', Validators.required],
+      // employeeid: ['', Validators.required],
     },
     { validator: passwordValidator }
   );

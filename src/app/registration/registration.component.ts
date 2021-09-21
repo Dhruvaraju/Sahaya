@@ -22,12 +22,13 @@ export class RegistrationComponent implements OnInit {
       fullname: ['', Validators.required],
       email: ['', Validators.required],
       // employeeType: ['', Validators.required],
+     
       phonenumber: [
         '',
         [
           Validators.required,
           Validators.maxLength(10),
-          Validators.minLength(9),
+          Validators.minLength(10),
         ],
       ],
       question1: ['', Validators.required],
@@ -68,11 +69,6 @@ export class RegistrationComponent implements OnInit {
           this.storage = response.message;
           this.submitted = true;
           this.sub = true;
-          localStorage.setItem('username',response.userName);
-          localStorage.setItem('fullname',response.employeeName);
-          localStorage.setItem('workPoint',response.workPoint);
-          localStorage.setItem('employeeType',response.employeeType);
-          
         } else if (response.message === 'User already present') {
           this.alreadyexists = true;
         }
