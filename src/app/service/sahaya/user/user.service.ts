@@ -31,6 +31,13 @@ export class UserService {
     return this.http.post<any>(this.serverUrl + 'creds', empInfoReq);
   }
   resetPassword(resetPasswordReq: any) {
-    return this.http.post<any>(this.serverUrl + 'updateDetails', resetPasswordReq);
+    return this.http.post<any>(this.serverUrl + 'resetPassword', resetPasswordReq);
   }
+ 
+
+  empDetailUpdate(formEmployee:any):Observable<any>{
+    return this.http.post<any>(this.serverUrl+'updateDetails',formEmployee)
+
+}
+  
 }

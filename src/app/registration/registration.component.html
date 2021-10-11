@@ -1,12 +1,8 @@
-<div class="container-fluid ps-md-0 ">
-  <div class="bg-image img js-fullheight" 
-     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
-             ">
-<!-- <div class="card bg-dark bg-image " > -->
-  
-  <!-- <div class="login100-pic js-tilt image" data-tilt  >
-      <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" style="width: 20; background-repeat : no-repeat;">
-  </div> -->
+<div *ngIf=!sub class="container-fluid ps-md-0 ">
+  <div class="bg">
+  <!-- <div class="bg-image img js-fullheight" 
+      style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+             "> --> 
   <article class="card-body mx-auto" style="max-width: 400px;">
 	<h3 class="card-title mt-3 text-center">Create Account</h3>
   <form [formGroup]="registrationForm" *ngIf="!submitted" >
@@ -17,7 +13,7 @@
         <input name="" class="form-control" id="Full " placeholder="Full name" type="text" formControlName="fullname"/>
   </div>
   <div *ngIf="registrationForm.get('fullname').invalid && registrationForm.get('fullname').touched">
-        <small *ngIf= "registrationForm.get('fullname').errors?.required" class="text-danger">Name is Required</small></div>
+        <small *ngIf= "registrationForm.get('fullname').errors?.required"  style="font-weight:bold;color: whitesmoke;">Name is Required</small></div>
      <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -26,7 +22,7 @@
         <input name="" class="form-control" placeholder="Email address" type="email" formControlName="email"/>
         </div>
         <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
-        <small *ngIf= "registrationForm.get('email').errors?.required" class="text-danger">email is Required</small></div>
+        <small *ngIf= "registrationForm.get('email').errors?.required"  style="font-weight:bold;color: whitesmoke;" >email is Required</small></div>
     <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -39,11 +35,11 @@
     	<input name="" class="form-control" placeholder="Phone number" type="text" formControlName="phonenumber">
     </div>
       <div *ngIf="registrationForm.get('phonenumber').invalid && registrationForm.get('phonenumber').touched">
-        <small *ngIf= "registrationForm.get('phonenumber').errors?.required" class="text-danger">Phonenumber is Required</small>
-        <small *ngIf= "registrationForm.get('phonenumber').errors?.minlength" class="text-danger" >phonenumber must be 10 digits</small>
+        <small *ngIf= "registrationForm.get('phonenumber').errors?.required" style="font-weight:bold;color: whitesmoke;">Phonenumber is Required</small>
+        <small *ngIf= "registrationForm.get('phonenumber').errors?.minlength" style="font-weight:bold;color: whitesmoke;">phonenumber must be 10 digits</small>
       </div>
          <!-- form-group// --> 
-      <div class="form-group input-group">
+      <!-- <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
       
@@ -52,7 +48,7 @@
         <option selected="">ADMIN</option>
         <option>USER</option>
         </select>
-    </div>
+    </div> -->
      <!-- form-group// --> 
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -74,7 +70,7 @@
         <input class="form-control" placeholder="Answer" type="text" formControlName="answer1">
     </div>
         <div *ngIf="registrationForm.get('answer1').invalid && registrationForm.get('answer1').touched">
-          <small *ngIf= "registrationForm.get('answer1').errors?.required" class="text-danger">Answer is Required</small></div>
+          <small *ngIf= "registrationForm.get('answer1').errors?.required" style="font-weight:bold;color: whitesmoke;">Answer is Required</small></div>
        <!-- form-group// -->
       <div class="form-group input-group">
         <div class="input-group-prepend">
@@ -95,7 +91,7 @@
           <input class="form-control" placeholder="Answer" type="text" formControlName="answer2">
         </div>
         <div *ngIf="registrationForm.get('answer2').invalid && registrationForm.get('answer2').touched">
-          <small *ngIf= "registrationForm.get('answer2').errors?.required" class="text-danger">Answer is Required</small></div>
+          <small *ngIf= "registrationForm.get('answer2').errors?.required" style="font-weight:bold;color: whitesmoke;">Answer is Required</small></div>
       
      <!-- form-group// -->
     <div class="form-group input-group">
@@ -106,24 +102,25 @@
       <input class="form-control" placeholder="password" type="password" formControlName="password">
     </div>
      <div *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">
-      <small *ngIf= "registrationForm.get('password').errors?.required" class="text-danger">password is Required</small>
-      <small *ngIf= "registrationForm.get('password').errors?.pattern" class="text-danger">password must contain special character,uppercase and lower case and number and minimum 8 character</small>
+      <small *ngIf= "registrationForm.get('password').errors?.required" style="font-weight:bold;color: whitesmoke;">password is Required</small>
+      <small *ngIf= "registrationForm.get('password').errors?.pattern" style="font-weight:bold;color: whitesmoke;" >password must contain special character,uppercase and lower case and number and minimum 8 character</small>
     </div>
    
     <!-- form-group// -->  
 
     <div class="form-group input-group">
     	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock fa-fw"></i> </span>
+		    <span class="input-group-text"> <i class="fa fa-lock fa-fw"></i> </span>  
 		</div>
         <input class="form-control" placeholder="Confirm password" type="password" formControlName="cpassword"   [class.is-invlaid]="registrationForm.errors?.mismatch">
       </div>
       <div *ngIf="registrationForm.get('cpassword').invalid && registrationForm.get('cpassword').touched">
-        <small *ngIf= "registrationForm.get('cpassword').errors?.required" class="text-danger">confirm password is Required</small>
+        <small *ngIf= "registrationForm.get('cpassword').errors?.required" class="text" style="font-weight:bold;color: whitesmoke;">confirm password is Required*</small>
       </div>
       <div
         *ngIf="registrationForm.errors?.mismatch"
-        class="text-danger"
+   
+        style="font-weight:bold;color: whitesmoke;"
       >
         <small>password mismatch</small>
       </div>
@@ -139,18 +136,26 @@
         <button type="button" class="btn btn-primary btn-block" (click)="onsubmit()" [disabled]="registrationForm.invalid"> Create Account  </button>
         </div>
     <!-- form-group// -->      
-    <p class="text-center">Already have an account? <a routerLink="/login">Log In</a> </p>                                                                 
+    <p class="text-center" style="font-weight: bold;color: black;">Already have an account? <a routerLink="/login"style="font-weight-bold;color:white">Log In</a> </p>                                                                 
+                                                                    
 </form>
+
+
 </article>
-<div *ngIf="sub" class="text-center">
-  <h3>Registration Complete</h3>
-  <p>Successfully Registered</p>
-   {{ storage}}
-  <br /><br />
-  <button class="btn btn-primary" routerLink="/login">Login</button>
-  </div>
+
 </div>
  <!-- card.// -->
 </div> 
 <!--container end.//-->
-
+<div class="bg-image img js-fullheight" 
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+             "  >
+             <div *ngIf="sub" class="bg text-center">
+  <br><br><br><br><br><br>
+  <h3>Registration Successfull</h3>
+  <br><br>
+   {{ storage}}
+  <br /><br /><br>
+  <button class="btn btn-primary" routerLink="/login">Login</button>
+  </div>
+</div>
