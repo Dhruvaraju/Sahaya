@@ -100,6 +100,7 @@ export class LoginComponent implements OnInit {
           //console.log()
           localStorage.setItem('employeeID', data.employeeId);
           localStorage.setItem('employeeType',data.employeeType);
+          localStorage.setItem('workPoint',data.workPoint);
           console.log(localStorage.getItem('employeeID'));
           console.log(localStorage.getItem('employeeType'));
           console.log('Success data values are ', data);

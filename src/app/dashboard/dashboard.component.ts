@@ -50,6 +50,31 @@ export class DashboardComponent implements OnInit {
   ngOnInit(
   ): any {
     //console.log("Total tickets");
+    this._ticketService.totalTicketsClosed().subscribe(
+    (data)=>{console.log("Closed tickets data is",data);
+    console.log(data.length);
+      for(let i =0; i < data.length;i++){
+        console.log("=====Closed Ticket Details=========")
+          this.arrayOfClosedTickets[this.countOfClosedTickets]=data[i];
+          if(localStorage.getItem('employeeType')==='ADMIN')
+          {
+            this.statusArrayOfClosedTickets[this.countOfClosedTickets] = true;
+          }
+          else{
+            if(localStorage.getItem('employeeID')==data[i].employeeId)
+            {
+              console.log("Local Storage value ",localStorage.getItem('employeeID'),"data item",data[i].employeeId)
+              this.statusArrayOfClosedTickets[this.countOfClosedTickets] = true;
+            }
+            else{
+              console.log("Local Storage value ",localStorage.getItem('employeeID'),"data item",data[i].employeeId);
+              this.statusArrayOfClosedTickets[this.countOfClosedTickets] = false;
+            }
+          }
+          this.countOfClosedTickets++;
+      }
+  }
+    )
       this._ticketService.totalTicketsOpened().subscribe(
       (data)=>{console.log("total tickets data ",data);
         console.log(data.length);

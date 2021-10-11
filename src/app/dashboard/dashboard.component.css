@@ -35,7 +35,8 @@
     #d4f8ea,
     #ddfaef
   );  */
-  background-color:#2f4f4f;
+  background-color:#ffffe9;
+  
 }
 
 #sidebar-wrapper {
@@ -104,22 +105,42 @@
 }
 .l-bg-cherry {
   /* background: linear-gradient(to right, #493240, #f09) !important; */
-  background:linear-gradient(to right,#489065,#654312);
+  /* background:linear-gradient(to right,#489065,#654312); */
+  /* background:rgba(90,97,105,0.12); */
+  background-color:#92a8dc ;
+  color: #fff;
+}
+.l-bg-cherry1 {
+  /* background: linear-gradient(to right, #493240, #f09) !important; */
+  /* background:linear-gradient(to right,#489065,#654312); */
+  /* background:rgba(90,97,105,0.12); */
+  background-color:#f4a688;
+  color: #fff;
+}
+.l-bg-cherry9 {
+  /* background: linear-gradient(to right, #493240, #f09) !important; */
+  /* background:linear-gradient(to right,#489065,#654312); */
+  /* background:rgba(90,97,105,0.12); */
+  background-color:#669999;
   color: #fff;
 }
 
 .l-bg-blue-dark {
-  background: linear-gradient(to right, #373b44, #4286f4) !important;
+  /* background: linear-gradient(to right, #373b44, #4286f4) !important; */
+  /* background-color:#4286f4; */
+  background-color:#ffcc66;
   color: #fff;
 }
 
 .l-bg-green-dark {
-  background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+  /* background: linear-gradient(to right, #0a504a, #38ef7d) !important; */
+  background-color:#034f84;
   color: #fff;
 }
 
 .l-bg-orange-dark {
-  background: linear-gradient(to right, #a86008, #ffba56) !important;
+  /* background: linear-gradient(to right, #a86008, #ffba56) !important; */
+  background-color:#ff000080;
   color: #fff;
 }
 
