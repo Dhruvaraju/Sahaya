@@ -16,11 +16,12 @@ import { FooterComponent } from './footer/footer.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { FaqComponent } from './faq/faq.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { NavbarComponent } from './navbar/navbar.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, DashboardComponent, HomeComponent, MenubarComponent, FooterComponent, EmployeeProfileComponent, FaqComponent, FeedbackComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, DashboardComponent, HomeComponent, MenubarComponent, FooterComponent, EmployeeProfileComponent, FaqComponent, FeedbackComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

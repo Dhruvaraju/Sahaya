@@ -15,6 +15,9 @@ export class TicketService {
     return this.http.get<any>(this.serverUrl+'active');
   }
   // ticketStatusUpdatedFromAssignState(ticketDetails:any){
+    totalTicketsClosed():Observable<any> {
+      return this.http.get<any>(this.serverUrl+'closed');
+    }
    ticketStatusUpdatedFromNewState(ticketDetails:any){
      
     return this.http.post<any>(this.serverUrl+'update',ticketDetails);
@@ -28,5 +31,8 @@ export class TicketService {
     return this.http.post<any>(this.serverUrl+'update',ticketDetails);
 
   }
-  
+  feedbackFormSubmission(feedBackData:any):Observable<any>{
+    return this.http.post<any>(this.serverUrl+'user/message',feedBackData);
+
+  }
 }

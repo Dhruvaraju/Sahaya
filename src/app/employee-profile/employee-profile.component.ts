@@ -10,10 +10,21 @@ import { UserService } from '../service/sahaya/user/user.service';
 })
 
 export class EmployeeProfileComponent implements OnInit {
+  level:number=Number(localStorage.getItem('workPoint'));
   displayChangePassword =false;
   displayGeneral=true;
   SuccessStatement = '';
   FailureStatement = '';
+
+  Apprentice=false;
+  Initiated=false;
+  Trained=false;
+  Able=false;
+  Competent=false;
+  Adept=false;
+  Experienced=false;
+
+
   empid: string = localStorage.getItem('EmployeeID');
   // empname: string = localStorage.getItem('name');
   // Contact: string = localStorage.getItem('contactNo');
@@ -101,8 +112,66 @@ export class EmployeeProfileComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
+  ngOnInit() {
     console.log("=%$(++)=",this.emptype);
+    console.log("Level is ",this.level);
+    console.log(this.Apprentice+"   =======   "+this.Initiated+"     level is "+this.level);
+     
+switch (Number(true)) {
+    case Number(this.level>=0 && this.level<=100):
+      this.Apprentice=true;
+        
+        break;
+    case Number(this.level>100 && this.level<=200):
+      this.Apprentice=true;
+      this.Initiated=true;
+        
+        break;
+    case  Number(this.level>200 && this.level<=300):
+      this.Apprentice=true;
+      this.Initiated=true;
+      this.Trained=true;
+        
+        break;
+    case Number(this.level>300 && this.level<=400):
+      this.Apprentice=true;
+      this.Initiated=true;
+      this.Trained=true;
+      this.Able=true;
+        
+        break;
+    case Number(this.level>400 && this.level<=500):
+      this.Apprentice=true;
+      this.Initiated=true;
+      this.Trained=true;
+      this.Able=true;
+      this.Competent=true;
+        
+        break;
+    case Number(this.level>500 && this.level<=600):
+      this.Apprentice=true;
+      this.Initiated=true;
+      this.Trained=true;
+      this.Able=true;
+      this.Competent=true;
+      this.Adept=true;
+        
+        break;
+    case Number(this.level>600 && this.level<=700):
+      this.Apprentice=true;
+      this.Initiated=true;
+      this.Trained=true;
+      this.Able=true;
+      this.Competent=true;
+      this.Adept=true;
+      this.Experienced=true;
+        
+        break;
+      default:
+        console.log(Number(this.level>=0 && this.level<=100));
+    }
+  
+   
   }
 
   invokeChangePassword()
