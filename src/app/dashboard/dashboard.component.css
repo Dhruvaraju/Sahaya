@@ -75,10 +75,11 @@
 }
 
 .list-group-item.active {
-  background-color: transparent;
-  color: var(--main-text-color);
+  background-color: grey;
+  /* color: var(--main-text-color); */
   font-weight: bold;
   border: none;
+  color:orange;
 }
 
 @media (min-width: 768px) {

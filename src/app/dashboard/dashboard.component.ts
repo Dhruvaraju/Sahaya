@@ -10,7 +10,8 @@ import { TicketService } from '../service/sahaya/ticket/ticket.service';
 export class DashboardComponent implements OnInit {
   
   
-
+  EmpID=localStorage.getItem('employeeID');
+  EmpName=localStorage.getItem('eName');
   countOfNewTickets = 0;
   countOfInprogressTickets=0;
   countOfClosedTickets=0;
@@ -250,14 +251,14 @@ export class DashboardComponent implements OnInit {
     let newTicketDetails ={
       ticketId:ticketIDValue,
       ticketStatus:this.newTicketDetailsDisplayForm.get('ticketStatus').value,
-      severity:this.newTicketDetailsDisplayForm.get('ticketSeverity').value,
+      ticketSeverity:this.newTicketDetailsDisplayForm.get('ticketSeverity').value,
       employeeId:this.newTicketDetailsDisplayForm.get('EmployeeID').value,
       employeeName:this.newTicketDetailsDisplayForm.get('EmployeeName').value,
       messageToUser:this.newTicketDetailsDisplayForm.get('messageToUser').value
 
     }
     console.log(this.newTicketDetailsDisplayForm.get('ticketStatus').value," is the ticket status");
-
+    console.log(this.newTicketDetailsDisplayForm.get('ticketSeverity').value,"---------------(((((((((((((((9")
     this._ticketService.ticketStatusUpdatedFromNewState(newTicketDetails).subscribe(
       (data)=>{console.log('Sussecc',data),console.log("SUCCESSSSSSSSSSS")},
       (error)=>{console.log('error',error),console.log("ERRORRRRRRRRRRRRR")}
@@ -282,7 +283,7 @@ export class DashboardComponent implements OnInit {
       let assignedTicketDetails={
         ticketId:ticketIDValue,
         ticketStatus:ticketStatus,
-        severity:ticketSeverity,
+        ticketSeverity:ticketSeverity,
         employeeId:employeeId,
         employeeName:employeeName,
         messageToUser:messageToUser
@@ -307,7 +308,7 @@ export class DashboardComponent implements OnInit {
     let assignedTicketDetails={
       ticketId:ticketIDValue,
       ticketStatus:ticketStatus,
-      severity:ticketSeverity,
+      ticketSeverity:ticketSeverity,
       employeeId:employeeId,
       employeeName:employeeName,
       messageToUser:messageToUser
@@ -332,7 +333,7 @@ updateTicketDetailsFromVerifiedState(ticketIDValue,ticketStatus,ticketSeverity,e
     let assignedTicketDetails={
       ticketId:ticketIDValue,
       ticketStatus:ticketStatus,
-      severity:ticketSeverity,
+      ticketSeverity:ticketSeverity,
       employeeId:employeeId,
       employeeName:employeeName,
       messageToUser:messageToUser
@@ -357,7 +358,7 @@ updateTicketDetailsFromPendingState(ticketIDValue,ticketStatus,ticketSeverity,em
     let assignedTicketDetails={
       ticketId:ticketIDValue,
       ticketStatus:ticketStatus,
-      severity:ticketSeverity,
+      ticketSeverity:ticketSeverity,
       employeeId:employeeId,
       employeeName:employeeName,
       messageToUser:messageToUser

@@ -23,7 +23,10 @@
           second-text
           active
         "
-        ><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a
+        ><i class="fas fa-tachometer-alt me-2">
+
+        </i>
+        Dashboard</a
       >
       <a
         href="/employee"
@@ -115,11 +118,14 @@
       style="background-color: #fffaff"
     >
       <div class="d-flex align-items-center">
-        <i
+        <!-- <i
           class="fas fa-align-left secondary-text fs-4 me-3"
           id="menu-toggle"
-        ></i>
-        <h4>Dashboard</h4>
+        ></i> -->
+        <br>
+        <br>
+        <h3><b>Welcome {{EmpName}}</b></h3>
+        <br>
       </div>
 
       <button
@@ -145,7 +151,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <i class="fas fa-user me-2"></i>EmployeeID
+              <i class="fas fa-user me-2"></i>{{EmpID}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -590,6 +596,7 @@
                                   ><b>*</b></span
                                 ></label
                               >
+                              
                               <select
                                 class="form-select"
                                 aria-label="Default select example"
@@ -602,9 +609,10 @@
                                 <option value="LOW">LOW</option>
                                 <option value="MEDIUM">MEDIUM</option>
                                 <option value="HIGH">HIGH</option>
-                                <option value="SHOW STOPPER">SHOW STOPPER</option>
+                                <option value="SHOW_STOPPER">SHOW_STOPPER</option>
                               </select>
-
+                              {{newTicketDetailsDisplayForm.value | json}}
+                             
 
                                <!--Ticket Severity Validation Starting-->
 
@@ -901,6 +909,7 @@
                                 <option value="HIGH">HIGH</option>
                                 <option value="SHOW STOPPER">SHOW STOPPER</option>
                                         </select>
+                                        {{newTicketDetailsDisplayForm.value | json}}
                                       </div>
                                 </div>
                             </div>
@@ -1098,6 +1107,7 @@
                                 <option value="HIGH">HIGH</option>
                                 <option value="SHOW STOPPER">SHOW STOPPER</option>
                                         </select>
+                                        {{newTicketDetailsDisplayForm.value | json}}
                                           </div>
                                     </div>
                                 </div>
@@ -1702,6 +1712,7 @@
                                 <option value="HIGH">HIGH</option>
                                 <option value="SHOW STOPPER">SHOW STOPPER</option>
                                         </select>
+                                        {{newTicketDetailsDisplayForm.value | json}}
                                         </div>
                                   </div>
                               </div>

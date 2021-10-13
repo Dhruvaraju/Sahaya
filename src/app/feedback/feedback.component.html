@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="wrapper rounded d-flex align-items-stretch">
     <div class="bg-yellow">
         <div class="text-white"> <span class="far fa-emoji"></span> </div>
@@ -6,30 +7,94 @@
     </div>
     <div class="contact-form">
         <div class="h3">Feedback</div>
-        <form>
-            <div class="form-group pt-3"> <label for="message" >Message</label> <textarea name="message" class="form-control" required></textarea> </div>
+        <form [formGroup]="feedBackDisplayForm">
+            <div class="form-group pt-3"> <label for="message" >Message</label> <textarea name="message" class="form-control" required #ticketRefMessage formControlName="message" placeholder="Write your message here....."></textarea> </div>
             <div class="d-flex align-items-center flex-wrap justify-content-between pt-4">
-                <div class="form-group pt-lg-2 pt-3"> <label for="name">Ticket Id</label> <input type="text" name="TicketID" class="form-control" required> </div>
+                <div class="form-group pt-lg-2 pt-3"> <label for="name">Ticket Id</label> <input type="text" name="TicketID" class="form-control" required  #ticketRefID formControlName="ticketId"> </div>
                 <!-- <div class="form-group pt-lg-2 pt-3"> <label for="name">Your Email</label> <input type="email" name="email" class="form-control" required> </div> -->
             </div>
+                <br>
+                <div
+                *ngIf="
+                  feedBackDisplayForm.get('ticketId').invalid &&
+                  feedBackDisplayForm.get('ticketId').touched
+                "
+              >
+                <span>
+                  <small
+                    *ngIf="feedBackDisplayForm.get('ticketId').errors?.required"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**TicketId is Required**</small
+                  >
+                  <small
+                    *ngIf="feedBackDisplayForm.get('ticketId').errors?.minlength"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**TicketID must be 6 digits**</small
+                  ><br />
+                  <small
+                    *ngIf="feedBackDisplayForm.get('ticketId').errors?.pattern"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**ticketID must in Numbers**</small
+                  ><br />
+                  <small
+                    *ngIf="feedBackDisplayForm.get('ticketId').errors?.maxlength"
+                    class="text-warning"
+                    style="font-size: medium"
+                    >**ticketIdID must be 6 digits**</small
+                  ></span
+                >
+              </div>
+            
+            
+            
+            
+            
+            
+            <!-- </div> -->
             <div class="d-flex align-items-center flex-wrap justify-content-between pt-lg-5 mt-lg-4 mt-5">
                 <div class="btn btn-default"> Cancel </div>
-                <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"> Submit </div>
+                <div type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#myModal" (click)="submitMessage(ticketRefMessage.value,ticketRefID.value)"> Submit </div>
+            
+                
             </div>
+           
         </form>
     </div>
-</div> <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Thank You...! </h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="ps-2">Thank You for sharing your views with us.
-                     :)<br>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" align="center" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><br>
+          <h5 class="modal-title" id="myModalLabel" style="color:deeppink">Feedback submitted Successfully</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <br>
+         Thank you for sharing views with us
+         <br><br>
+        </div>
+         <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div> 
+
+        <!-- Modal -->
+
+
+
+
+
+
+
+  

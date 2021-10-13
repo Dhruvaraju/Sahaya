@@ -31,5 +31,8 @@ export class TicketService {
     return this.http.post<any>(this.serverUrl+'update',ticketDetails);
 
   }
-  
+  feedbackFormSubmission(feedBackData:any):Observable<any>{
+    return this.http.post<any>(this.serverUrl+'user/message',feedBackData);
+
+  }
 }
