@@ -1,0 +1,1825 @@
+<div class="d-flex" id="wrapper">
+  <div class="bg-white" id="sidebar-wrapper">
+    <div
+      class="
+        sidebar-heading
+        text-center
+        py-4
+        primary-text
+        fs-4
+        fw-bold
+        text-uppercase
+        border-bottom
+      "
+    >
+      <i class="fas fa-user-secret me-2"></i>Sahaya
+    </div>
+    <div class="list-group list-group-flush my-3">
+      <a
+        href="/dashboard"
+        class="
+          list-group-item list-group-item-action+
+          bg-transparent
+          second-text
+          active
+        "
+        ><i class="fas fa-tachometer-alt me-2">
+
+        </i>
+        Dashboard</a
+      >
+      <a
+        href="/employee"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-project-diagram me-2"></i>Employee Profile</a
+      >
+      
+      <a
+        href="/feedback"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        >
+        <i class="fas fa-chart-line me-2"></i>Feedback</a
+      >
+      <!-- <a
+        href="#"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-paperclip me-2"></i>FAQs</a
+      > -->
+      <!-- <a
+        href="#"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-shopping-cart me-2"></i>Store Mng</a
+      >
+      <a
+        href="#"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-gift me-2"></i>Products</a
+      > -->
+      <a
+        href="/faq"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-comment-dots me-2"></i>Chat</a
+      >
+      <!-- <a
+        href="#"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          second-text
+          fw-bold
+        "
+        ><i class="fas fa-map-marker-alt me-2"></i>Outlet</a
+      > -->
+      <a
+        href="#"
+        class="
+          list-group-item list-group-item-action
+          bg-transparent
+          text-danger
+          fw-bold
+        "
+        ><i class="fas fa-power-off me-2"></i>Logout</a
+      >
+    </div>
+  </div>
+  <div id="page-content-wrapper">
+    <nav
+      class="navbar navbar-expand-lg navbar-light py-1 px-1"
+      style="background-color: #fffaff"
+    >
+      <div class="d-flex align-items-center">
+        <!-- <i
+          class="fas fa-align-left secondary-text fs-4 me-3"
+          id="menu-toggle"
+        ></i> -->
+        <br>
+        <br>
+        <h3><b>Welcome {{EmpName}}</b></h3>
+        <br>
+      </div>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle second-text fw-bold"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user me-2"></i>{{EmpID}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="col-12" style="padding-left: 190px">
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous"
+      />
+      <br />
+      <div class="container-fluid px-3">
+        <div class="row px-6 ">
+          <div class="col-xl-3 col-lg-6 ">
+            <div class="card l-bg-cherry">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <!-- <i class="fas fa-shopping-cart"></i> -->
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">New Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">
+                      {{ countOfNewTickets }}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-blue-dark">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <!-- <i class="fas fa-users"></i> -->
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Assigned Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">
+                      {{ countOfAssignedTickets }}
+                    </h5>
+                  </div>
+                  <!-- <div class="col-4 text-right">
+                                <span>9.23% <i class="fa fa-arrow-up"></i></span>
+                            </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <!-- <div class="card l-bg-green-dark"> -->
+              <div class="card l-bg-green-dark">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <!-- <i class="fas fa-ticket-alt"></i> -->
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Inprogress Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">
+                      {{ countOfInprogressTickets }}
+                    </h5>
+                  </div>
+                  <!-- <div class="col-4 text-right">
+                                <span>10% <i class="fa fa-arrow-up"></i></span>
+                            </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-orange-dark">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Verified Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">
+                      {{ countOfVerifiedTickets }}
+                    </h5>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous"
+      />
+
+      <div class="container-fluid px-3">
+        <div class="row">
+          <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-cherry1">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <!-- <i class="fas fa-shopping-cart"></i> -->
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Closed Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">
+                      {{ countOfClosedTickets }}
+                    </h5>
+                  </div>
+                  
+                </div>
+               
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-orange-dark">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <!-- <i class="fas fa-dollar-sign"></i> -->
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Verified Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">
+                      {{ countOfVerifiedTickets }}
+                    </h5>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-blue-dark">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Re-opened Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">0</h5>
+                  </div>
+                 
+                </div>
+               
+              </div>
+            </div>
+          </div> -->
+          <!-- <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-green-dark">
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <i class="fas fa-ticket-alt"></i>
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Updates Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">0</h5>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div> -->
+          <div class="col-xl-3 col-lg-6">
+            <!-- <div class="card l-bg-orange-dark"> -->
+              <div class="card l-bg-cherry9">
+              <!-- <div class="card primary" style="color-interpolation-filters: auto;"> -->
+              <div class="card-statistic-3 p-2">
+                <div class="card-icon card-icon-small">
+                  <!-- <i class="fas fa-dollar-sign"></i> -->
+                </div>
+                <div class="mb-4">
+                  <h5 class="card-title mb-0">Pending Tickets</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-8">
+                    <h5 class="d-flex align-items-center mb-0">
+                      {{ countOfPendingTickets }}
+                    </h5>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Navbar for Tickets-->
+    <div>
+      <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="newTickets-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#newTickets"
+              type="button"
+              role="tab"
+              aria-controls="newTickets"
+              aria-selected="true"
+            >
+              New Tickets
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="assignedTickets-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#assignedTickets"
+              type="button"
+              role="tab"
+              aria-controls="assignedTickets"
+              aria-selected="false"
+            >
+              Assigned Tickets
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="inProgressTickets-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#inProgressTickets"
+              type="button"
+              role="tab"
+              aria-controls="inProgressTickets"
+              aria-selected="false"
+            >
+              Inprogress Tickets
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="verifiedTickets-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#verifiedTickets"
+              type="button"
+              role="tab"
+              aria-controls="verifiedTickets"
+              aria-selected="false"
+            >
+              Verified Tickets
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="closedTickets-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#closedTickets"
+              type="button"
+              role="tab"
+              aria-controls="closedTickets"
+              aria-selected="false"
+            >
+              Closed Tickets
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pendingTickets-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#pendingTickets"
+              type="button"
+              role="tab"
+              aria-controls="pendingTickets"
+              aria-selected="false"
+            >
+              Pending Tickets
+            </button>
+          </li>
+        </ul>
+        
+        <div class="tab-content" id="myTabContent">
+            <!--New Tickets-->
+          <div
+            class="tab-pane fade show active"
+            id="newTickets"
+            role="tabpanel"
+            aria-labelledby="newTickets-tab"
+            
+          >
+          <div *ngFor="let traversingElement of arrayOfNewTickets let i =index;">
+             
+              <div class="accordion" id="accordainExample">
+            <!-- <div class="accordion" id="accordionExample"> -->
+              <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                <!-- <h2 class="accordion-header" id="headingOne"> -->
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapseOne'+i"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                   {{traversingElement.description}}
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne{{i}}"
+                  class="accordion-collapse collapse "
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <!-- <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                    
+                    <!-- {{newTicketDetailsDisplayForm.value|json}} -->
+                    
+                    <!-- Form Tag Starting-->
+                    <form [formGroup]="newTicketDetailsDisplayForm">
+                        
+                      <div class="card text-left">
+                        <div class="card-header">Enter Ticket Details</div>
+                        <div class="card-body">
+                          <div class="form-group row">
+                            <div class="col">
+                              <label for="ticketID"><b>TicketID</b></label>
+                               <input
+                                type="text"
+                                readonly
+                                class="form-control-plaintext"
+                                id="ticketID"
+                                value={{traversingElement.ticketId}}
+                               
+                                #ticketRefID
+                              /> 
+                              <!-- <p #ticketref value=traversingElement.ticketId>{{traversingElement.ticketId}}</p> -->
+                              
+                            </div>
+                            <div class="col">
+                              <label for="ticketIssue"
+                                ><b>Ticket Issue</b></label
+                              >
+                              <input
+                                type="text"
+                                readonly
+                                class="form-control-plaintext"
+                                id="ticketIssue"
+                                value={{traversingElement.issue}}
+                              />
+                            </div>
+                            <div class="col">
+                              <label for="ticketDescription"
+                                ><b>Ticket Description</b></label
+                              >
+                              <input
+                                type="text"
+                                readonly
+                                class="form-control-plaintext"
+                                id="ticketDescription"
+                                value={{traversingElement.description}}
+                              />
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col col-4">
+                              <label for="ticketStatus"
+                                ><b>Ticket Status</b
+                                ><span class="text-danger"><b>*</b></span>
+                              </label>
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                style="width: 250px"
+                                formControlName="ticketStatus"
+                                
+                              >
+                                <option value="">Select ticket Status</option>
+                                <option value="ASSIGNED">ASSIGNED</option>
+                                <option value="IN_PROGRESS">IN_PROGRESS</option>
+                                <option value="VERIFY">VERIFIED</option>
+                                <option value="CLOSED">CLOSED</option>
+                                <option value="PENDING">PENDING</option>
+                              </select>
+                              <!--Ticket Status Validation Starting-->
+
+                              <div
+                              *ngIf="
+                                newTicketDetailsDisplayForm.get('ticketStatus').invalid &&
+                                newTicketDetailsDisplayForm.get('ticketStatus').touched
+                              "
+                            >
+                              <span>
+                                <small
+                                  *ngIf="newTicketDetailsDisplayForm.get('ticketStatus').errors?.required"
+                                  class="text-danger"
+                                  style="font-size: medium"
+                                  >**Ticket Status is Required**</small
+                                >
+                                </span
+                              >
+                            </div>
+
+                              <!--Ticket Status Validation Ending-->
+                            </div>
+                            <div class="col">
+                              <label for="ticketSeverity"
+                                ><b>Ticket Severity</b
+                                ><span class="text-danger"
+                                  ><b>*</b></span
+                                ></label
+                              >
+                              
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                style="width: 250px"
+                                formControlName="ticketSeverity"
+                              >
+                                <option value="">
+                                  Select ticket Severity level
+                                </option>
+                                <option value="LOW">LOW</option>
+                                <option value="MEDIUM">MEDIUM</option>
+                                <option value="HIGH">HIGH</option>
+                                <option value="SHOW_STOPPER">SHOW_STOPPER</option>
+                              </select>
+                              {{newTicketDetailsDisplayForm.value | json}}
+                             
+
+                               <!--Ticket Severity Validation Starting-->
+
+                               <div
+                               *ngIf="
+                                 newTicketDetailsDisplayForm.get('ticketSeverity').invalid &&
+                                 newTicketDetailsDisplayForm.get('ticketSeverity').touched
+                               "
+                             >
+                               <span>
+                                 <small
+                                   *ngIf="newTicketDetailsDisplayForm.get('ticketSeverity').errors?.required"
+                                   class="text-danger"
+                                   style="font-size: medium"
+                                   >**Ticket Severity is Required**</small
+                                 >
+                                 </span
+                               >
+                             </div>
+ 
+                               <!--Ticket Severity Validation Ending-->
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-header">Enter Employee Details</div>
+                        <div class="card-body">
+                          <div class="form-group row">
+                            <div class="col col-4">
+                              <label for="employeeID"
+                                ><b>EmployeeID</b
+                                ><span class="text-danger"
+                                  ><b>*</b></span
+                                ></label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="employeeID"
+                               placeholder="EmployeeID"
+                                style="width: 250px"
+                                formControlName="EmployeeID"
+                              />
+                              <!--EmployeeID Validation Starting-->
+                              <div
+                *ngIf="
+                  newTicketDetailsDisplayForm.get('EmployeeID').invalid &&
+                  newTicketDetailsDisplayForm.get('EmployeeID').touched
+                "
+              >
+                <span>
+                  <small
+                    *ngIf="newTicketDetailsDisplayForm.get('EmployeeID').errors?.required"
+                    class="text-danger"
+                    style="font-size: medium"
+                    >**EmployeeID is Required**</small
+                  >
+                  <small
+                    *ngIf="newTicketDetailsDisplayForm.get('EmployeeID').errors?.minlength"
+                    class="text-danger"
+                    style="font-size: medium"
+                    >**EmployeeID must be 6 digits**</small
+                  ><br />
+                  <small
+                    *ngIf="newTicketDetailsDisplayForm.get('EmployeeID').errors?.pattern"
+                    class="text-danger"
+                    style="font-size: medium"
+                    >**EmployeeID must in Numbers**</small
+                  ><br />
+                  <small
+                    *ngIf="newTicketDetailsDisplayForm.get('EmployeeID').errors?.maxlength"
+                    class="text-danger"
+                    style="font-size: medium"
+                    >**EmployeeID must be 6 digits**</small
+                  ></span
+                >
+              </div>
+                              <!--EmployeeID Validation Ending-->
+                            </div>
+                            <div class="col">
+                              <label for="employeeName"
+                                ><b>EmployeeName</b
+                                ><span class="text-danger"
+                                  ><b>*</b></span
+                                ></label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="employeeName"
+                                placeholder="employeeName"
+                                formControlName="EmployeeName"
+                                style="width: 250px"
+                              />
+                              <!--EmployeeName Validation Starting-->
+
+                              <div
+                              *ngIf="
+                                newTicketDetailsDisplayForm.get('EmployeeName').invalid &&
+                                newTicketDetailsDisplayForm.get('EmployeeName').touched
+                              "
+                            >
+                              <span>
+                                <small
+                                  *ngIf="newTicketDetailsDisplayForm.get('EmployeeName').errors?.required"
+                                  class="text-danger"
+                                  style="font-size: medium"
+                                  >**EmployeeName is Required**</small
+                                >
+                                </span
+                              >
+                            </div>
+
+
+                              <!--EmployeeName Validation Ending-->
+                            </div>
+                            <!--Message To User Starting-->
+                            <div class="col">
+                                <label for="messageToUser"
+                                  ><b>Message To User</b
+                                  ><span class="text-danger"
+                                    ><b>*</b></span
+                                  ></label
+                                >
+                                <input
+                                type="text"
+                                class="form-control"
+                                id="messageToUser"
+                                placeholder="Message To User"
+                                formControlName="messageToUser"
+                                style="width: 250px"
+                              />
+                            
+                              <div
+                              *ngIf="
+                                newTicketDetailsDisplayForm.get('messageToUser').invalid &&
+                                newTicketDetailsDisplayForm.get('messageToUser').touched
+                              "
+                            >
+                              <span>
+                                <small
+                                  *ngIf="newTicketDetailsDisplayForm.get('messageToUser').errors?.required"
+                                  class="text-danger"
+                                  style="font-size: medium"
+                                  >**Message to user is Required**</small
+                                >
+                                </span
+                              >
+                            </div>
+
+                            </div>
+                                <!--Message To User Ending-->
+                          </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <div>
+                          <button class="btn btn-primary" style="color: white"(click)="updateTicketDeatilsFromNewState(ticketRefID.value)" [disabled]="newTicketDetailsDisplayForm.invalid"
+                            >Update Ticket</button
+                          >
+                        </div>
+                        <div>
+                            <small *ngIf=failMessageToUpdateDetailsFromNewState class="text-danger"><b>**You cannot Assign Tickets to other Employees**</b></small>
+                            <small *ngIf=successMessageToUpdateDetailsFromNewState class="text-success"><b>**Ticket Details Updated Successfully**</b></small>
+                        </div>
+                        </div>
+                      </div>
+                    </form>
+
+
+                    <!-- FormTag Ending-->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            </div>
+          </div>
+          <!--Assigned Tickets-->
+          <div
+            class="tab-pane fade"
+            id="assignedTickets"
+            role="tabpanel"
+            aria-labelledby="assignedTickets-tab"
+          >
+          <div *ngFor="let traversingElement of arrayOfAssignedTickets let i =index;">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapseOne'+i"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                  {{traversingElement.description}}
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne{{i}}"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <form [formGroup]="assignedTicketDetailsDisplayForm">
+                        <div class="card text-left">
+                            <div class="card-header">Ticket Details</div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for="ticketID"><b>TicketID</b></label>
+                                         <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketID"
+                                          value={{traversingElement.ticketId}}
+                                          
+                                          #ticketIDRef
+                                        /> 
+                                        <!-- <p #ticketref value=traversingElement.ticketId>{{traversingElement.ticketId}}</p> -->
+                                        
+                                      </div>
+                                      <div class="col">
+                                        <label for="ticketIssue"
+                                          ><b>Ticket Issue</b></label
+                                        >
+                                        <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketIssue"
+                                          value={{traversingElement.issue}}
+                                          
+                                        />
+                                      </div>
+                                      <div class="col">
+                                        <label for="ticketDescription"
+                                          ><b>Ticket Description</b></label
+                                        >
+                                        <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketDescription"
+                                          value={{traversingElement.description}}
+                                        />
+                                      </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label for="ticketStatus" style="margin:0%"
+                                          ><b>Ticket Status</b></label
+                                        >
+                                        <!-- <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketStatus"
+                                          value={{traversingElement.ticketStatus}}
+                                        /> -->
+                                        <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfAssignedTickets[i]  #ticketStatusRef>
+                                <option value="{{traversingElement.ticketStatus}}">{{traversingElement.ticketStatus}}</option>
+                                <option value="ASSIGNED">ASSIGNED</option>
+                                <option value="IN_PROGRESS">IN_PROGRESS</option>
+                                <option value="VERIFY">VERIFIED</option>
+                                <option value="CLOSED">CLOSED</option>
+                                <option value="PENDING">PENDING</option>
+                                        </select>
+                                      </div>
+                                      <div class="col">
+                                        <label for="ticketSeverity" style="margin:0%"
+                                          ><b>Ticket Severity</b></label
+                                        >
+                                        <!-- <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketSeverity"
+                                          value={{traversingElement.severity}}
+                                        /> -->
+                                        <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfAssignedTickets[i]  #ticketSeverityRef>
+                                <option value="{{traversingElement.severity}}">{{traversingElement.severity}}</option>
+                                <option value="LOW">LOW</option>
+                                <option value="MEDIUM">MEDIUM</option>
+                                <option value="HIGH">HIGH</option>
+                                <option value="SHOW STOPPER">SHOW STOPPER</option>
+                                        </select>
+                                        {{newTicketDetailsDisplayForm.value | json}}
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="card-header">Employee Details</div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col" style="margin:0%">
+                                        <label for="EmployeeID" style="margin:0%"
+                                          ><b>EmployeeID</b></label
+                                        >
+                                        <input
+                                          type="text"
+                                          required
+                                          class="form-control-plaintext"
+                                          id="EmployeeID"
+                                          value={{traversingElement.employeeId}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfAssignedTickets[i]
+                                          #employeeIdRef
+                                        />
+                                        
+                                      </div>
+                                      <div class="col" style="margin:0%">
+                                        <label for="EmployeeName" style="margin:0%"
+                                          ><b>EmployeeName </b>
+                                          </label
+                                        >
+                                        <input
+                                          type="text"
+                                         
+                                          class="form-control-plaintext"
+                                          id="EmployeeName"
+                                          value={{traversingElement.employeeName}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfAssignedTickets[i]
+                                          #employeeNameRef
+                                        />
+                                      </div>
+                                      <div class="col" style="margin:0%">
+                                        <label for="Message To User" style="margin:0%"
+                                          ><b>Message To User </b>
+                                          </label
+                                        >
+                                        <input
+                                          type="text"
+                                         
+                                          class="form-control-plaintext"
+                                          id="messageToUser"
+                                          value={{traversingElement.messageToUser}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfAssignedTickets[i]
+                                          #messageToUserRef
+                                        />
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <div>
+                              <button class="btn btn-primary" style="color: white" 
+                              [attr.target]="'#o'+i"
+                              (click)="updateTicketDetailsFromAssignedState(ticketIDRef.value,ticketStatusRef.value,ticketSeverityRef.value,employeeIdRef.value,employeeNameRef.value,messageToUserRef.value)"
+                                >Update Ticket</button
+                              >
+                            </div>
+                            <div>
+                                <small *ngIf=failMessageToUpdateDetailsFromAssignedState class="text-danger" ><b>**You cannot Assign Tickets to other Employees**</b></small>
+                                <small *ngIf=successMessageToUpdateDetailsFromAssignedState class="text-success"><b>**Ticket Details Updated Successfully**</b></small>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+          </div>
+          <!--InProgress Tickets-->
+          <div
+            class="tab-pane fade"
+            id="inProgressTickets"
+            role="tabpanel"
+            aria-labelledby="inProgressTickets-tab">
+          
+
+            <div *ngFor="let traversingElement of arrayOfInprogressTickets let i =index;">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        [attr.data-bs-target]="'#collapseOne'+i"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                      {{traversingElement.description}}
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseOne{{i}}"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <form>
+                            <div class="card text-left">
+                                <div class="card-header">Ticket Details</div>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <label for="ticketID"><b>TicketID</b></label>
+                                             <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="ticketID"
+                                              value={{traversingElement.ticketId}}
+                                             
+                                              #ticketIDRef
+                                            /> 
+                                            <!-- <p #ticketref value=traversingElement.ticketId>{{traversingElement.ticketId}}</p> -->
+                                            
+                                          </div>
+                                          <div class="col">
+                                            <label for="ticketIssue"
+                                              ><b>Ticket Issue</b></label
+                                            >
+                                            <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="ticketIssue"
+                                              value={{traversingElement.issue}}
+                                            />
+                                          </div>
+                                          <div class="col">
+                                            <label for="ticketDescription"
+                                              ><b>Ticket Description</b></label
+                                            >
+                                            <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="ticketDescription"
+                                              value={{traversingElement.description}}
+                                            />
+                                          </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label for="ticketStatus" style="margin:0%"
+                                              ><b>Ticket Status</b></label
+                                            >
+                                            <!-- <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="ticketStatus"
+                                              value={{traversingElement.ticketStatus}}
+                                            /> -->
+                                            <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfInprogressTickets[i]  #ticketStatusRef>
+                                <option value="{{traversingElement.ticketStatus}}">{{traversingElement.ticketStatus}}</option>
+                                <option value="ASSIGNED">ASSIGNED</option>
+                                <option value="IN_PROGRESS">IN_PROGRESS</option>
+                                <option value="VERIFY">VERIFIED</option>
+                                <option value="CLOSED">CLOSED</option>
+                                <option value="PENDING">PENDING</option>
+                                        </select>
+                                          </div>
+                                          <div class="col">
+                                            <label for="ticketSeverity" style="margin:0%"
+                                              ><b>Ticket Severity</b></label
+                                            >
+                                            <!-- <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="ticketSeverity"
+                                              value={{traversingElement.severity}}
+                                            /> -->
+                                            <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfInprogressTickets[i]  #ticketSeverityRef>
+                                <option value="{{traversingElement.severity}}">{{traversingElement.severity}}</option>
+                                <option value="LOW">LOW</option>
+                                <option value="MEDIUM">MEDIUM</option>
+                                <option value="HIGH">HIGH</option>
+                                <option value="SHOW STOPPER">SHOW STOPPER</option>
+                                        </select>
+                                        {{newTicketDetailsDisplayForm.value | json}}
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="card-header">Employee Details</div>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col" style="margin:0%">
+                                            <label for="EmployeeID" style="margin:0%"
+                                              ><b>EmployeeID</b></label
+                                            >
+                                            <!-- <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="EmployeeID"
+                                              value={{traversingElement.employeeId}}
+                                              style="margin:0%"
+                                            /> -->
+                                            <input
+                                          type="text"
+                                          required
+                                          class="form-control-plaintext"
+                                          id="EmployeeID"
+                                          value={{traversingElement.employeeId}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfInprogressTickets[i]
+                                          #employeeIdRef
+                                        />
+                                          </div>
+                                          <div class="col" style="margin:0%">
+                                            <label for="EmployeeName" style="margin:0%"
+                                              ><b>EmployeeName </b>
+                                              </label
+                                            >
+                                            <!-- <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="EmployeeName"
+                                              value={{traversingElement.employeeName}}
+                                              style="margin:0%"
+                                            /> -->
+                                            <input
+                                          type="text"
+                                         
+                                          class="form-control-plaintext"
+                                          id="EmployeeName"
+                                          value={{traversingElement.employeeName}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfInprogressTickets[i]
+                                          #employeeNameRef
+                                        />
+                                          </div>
+                                          <div class="col" style="margin:0%">
+                                            <label for="Message To User" style="margin:0%"
+                                              ><b>Message To User </b>
+                                              </label
+                                            >
+                                            <!-- <input
+                                              type="text"
+                                              readonly
+                                              class="form-control-plaintext"
+                                              id="messageToUser"
+                                              value={{traversingElement.messageToUser}}
+                                              style="margin:0%"
+                                            /> -->
+                                            <input
+                                          type="text"
+                                         
+                                          class="form-control-plaintext"
+                                          id="messageToUser"
+                                          value={{traversingElement.messageToUser}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfInprogressTickets[i]
+                                          #messageToUserRef
+                                        />
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div>
+                                  <button type="button"  class="btn btn-primary" style="color: white" (click)="updateTicketDetailsFromInprogressState(ticketIDRef.value,ticketStatusRef.value,ticketSeverityRef.value,employeeIdRef.value,employeeNameRef.value,messageToUserRef.value)"
+                                
+                                    >Update Ticket</button
+                                  >
+                                </div>
+                                <div>
+                                    <small *ngIf=failMessageToUpdateDetailsFromInprogressState class="text-danger" ><b>**You cannot Assign Tickets to other Employees**</b></small>
+                                    <small *ngIf=successMessageToUpdateDetailsFromInprogressState class="text-success"><b>**Ticket Details Updated Successfully**</b></small>
+                                </div>
+
+                                </div>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+
+
+          
+          
+          </div>
+          <!--Verified Tickets-->
+          <div
+            class="tab-pane fade"
+            id="verifiedTickets"
+            role="tabpanel"
+            aria-labelledby="verifiedTickets-tab"
+          >
+            
+
+          <div *ngFor="let traversingElement of arrayOfVerifiedTickets let i =index;">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapseOne'+i"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                  {{traversingElement.description}}
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne{{i}}"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <form>
+                        <div class="card text-left">
+                            <div class="card-header">Ticket Details</div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for="ticketID"><b>TicketID</b></label>
+                                         <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketID"
+                                          value={{traversingElement.ticketId}}
+                                         
+                                          #ticketIDRef
+                                        /> 
+                                        <!-- <p #ticketref value=traversingElement.ticketId>{{traversingElement.ticketId}}</p> -->
+                                        
+                                      </div>
+                                      <div class="col">
+                                        <label for="ticketIssue"
+                                          ><b>Ticket Issue</b></label
+                                        >
+                                        <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketIssue"
+                                          value={{traversingElement.issue}}
+                                        />
+                                      </div>
+                                      <div class="col">
+                                        <label for="ticketDescription"
+                                          ><b>Ticket Description</b></label
+                                        >
+                                        <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketDescription"
+                                          value={{traversingElement.description}}
+                                        />
+                                      </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label for="ticketStatus" style="margin:0%"
+                                          ><b>Ticket Status</b></label
+                                        >
+                                        <!-- <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketStatus"
+                                          value={{traversingElement.ticketStatus}}
+                                        /> -->
+                                        <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfVerifiedTickets[i]  #ticketStatusRef>
+                                <option value="{{traversingElement.ticketStatus}}">{{traversingElement.ticketStatus}}</option>
+                                <option value="ASSIGNED">ASSIGNED</option>
+                                <option value="IN_PROGRESS">IN_PROGRESS</option>
+                                <option value="VERIFY">VERIFIED</option>
+                                <option value="CLOSED">CLOSED</option>
+                                <option value="PENDING">PENDING</option>
+                                        </select>
+                                      </div>
+                                      <div class="col">
+                                        <label for="ticketSeverity" style="margin:0%"
+                                          ><b>Ticket Severity</b></label
+                                        >
+                                        <!-- <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="ticketSeverity"
+                                          value={{traversingElement.severity}}
+                                        /> -->
+                                        <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfVerifiedTickets[i]  #ticketSeverityRef>
+                                <option value="{{traversingElement.severity}}">{{traversingElement.severity}}</option>
+                                <option value="LOW">LOW</option>
+                                <option value="MEDIUM">MEDIUM</option>
+                                <option value="HIGH">HIGH</option>
+                                <option value="SHOW STOPPER">SHOW STOPPER</option>
+                                        </select>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="card-header">Employee Details</div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col" style="margin:0%">
+                                        <label for="EmployeeID" style="margin:0%"
+                                          ><b>EmployeeID</b></label
+                                        >
+                                        <!-- <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="EmployeeID"
+                                          value={{traversingElement.employeeId}}
+                                          style="margin:0%"
+                                        /> -->
+                                        <input
+                                          type="text"
+                                          required
+                                          class="form-control-plaintext"
+                                          id="EmployeeID"
+                                          value={{traversingElement.employeeId}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfVerifiedTickets[i]
+                                          #employeeIdRef
+                                        />
+                                      </div>
+                                      <div class="col" style="margin:0%">
+                                        <label for="EmployeeName" style="margin:0%"
+                                          ><b>EmployeeName </b>
+                                          </label
+                                        >
+                                        <!-- <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="EmployeeName"
+                                          value={{traversingElement.employeeName}}
+                                          style="margin:0%"
+                                        /> -->
+                                        <input
+                                        type="text"
+                                       
+                                        class="form-control-plaintext"
+                                        id="EmployeeName"
+                                        value={{traversingElement.employeeName}}
+                                        style="margin:0%"
+                                        [disabled]=!statusArrayOfVerifiedTickets[i]
+                                        #employeeNameRef
+                                      />
+                                      </div>
+                                      <div class="col" style="margin:0%">
+                                        <label for="Message To User" style="margin:0%"
+                                          ><b>Message To User </b>
+                                          </label
+                                        >
+                                        <!-- <input
+                                          type="text"
+                                          readonly
+                                          class="form-control-plaintext"
+                                          id="messageToUser"
+                                          value={{traversingElement.messageToUser}}
+                                          style="margin:0%"
+                                        /> -->
+                                        <input
+                                          type="text"
+                                         
+                                          class="form-control-plaintext"
+                                          id="messageToUser"
+                                          value={{traversingElement.messageToUser}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfVerifiedTickets[i]
+                                          #messageToUserRef
+                                        />
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body text-center">
+                                <div>
+                              <button class="btn btn-primary" style="color: white" type="button"
+                              
+                              (click)="updateTicketDetailsFromVerifiedState(ticketIDRef.value,ticketStatusRef.value,ticketSeverityRef.value,employeeIdRef.value,employeeNameRef.value,messageToUserRef.value)"
+                                >Update Ticket</button
+                              >
+                            </div>
+                            <div>
+                                <small *ngIf=failMessageToUpdateDetailsFromVerifiedState class="text-danger" ><b>**You cannot Assign Tickets to other Employees**</b></small>
+                                <small *ngIf=successMessageToUpdateDetailsFromVerifiedState class="text-success"><b>**Ticket Details Updated Successfully**</b></small>
+                            </div>
+                            </div>
+
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+        </div>
+          </div>
+          <!--Closed Tickets-->
+          <div
+            class="tab-pane fade"
+            id="closedTickets"
+            role="tabpanel"
+            aria-labelledby="closedTickets-tab"
+          >
+          <div *ngFor="let traversingElement of arrayOfClosedTickets let i =index;">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#collapseOne'+i"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                    {{traversingElement.description}}
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne{{i}}"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <form>
+                          <div class="card text-left">
+                              <div class="card-header">Ticket Details</div>
+                              <div class="card-body">
+                                  <div class="form-group row">
+                                      <div class="col">
+                                          <label for="ticketID"><b>TicketID</b></label>
+                                           <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketID"
+                                            value={{traversingElement.ticketId}}
+                                           
+                                            #ticketRefID
+                                          /> 
+                                          <!-- <p #ticketref value=traversingElement.ticketId>{{traversingElement.ticketId}}</p> -->
+                                          
+                                        </div>
+                                        <div class="col">
+                                          <label for="ticketIssue"
+                                            ><b>Ticket Issue</b></label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketIssue"
+                                            value={{traversingElement.issue}}
+                                          />
+                                        </div>
+                                        <div class="col">
+                                          <label for="ticketDescription"
+                                            ><b>Ticket Description</b></label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketDescription"
+                                            value={{traversingElement.description}}
+                                          />
+                                        </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <div class="col-4">
+                                          <label for="ticketStatus" style="margin:0%"
+                                            ><b>Ticket Status</b></label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketStatus"
+                                            value={{traversingElement.ticketStatus}}
+                                          />
+                                        </div>
+                                        <div class="col">
+                                          <label for="ticketSeverity" style="margin:0%"
+                                            ><b>Ticket Severity</b></label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketSeverity"
+                                            value={{traversingElement.severity}}
+                                          />
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="card-header">Employee Details</div>
+                              <div class="card-body">
+                                  <div class="form-group row">
+                                      <div class="col" style="margin:0%">
+                                          <label for="EmployeeID" style="margin:0%"
+                                            ><b>EmployeeID</b></label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="EmployeeID"
+                                            value={{traversingElement.employeeId}}
+                                            style="margin:0%"
+                                          />
+                                        </div>
+                                        <div class="col" style="margin:0%">
+                                          <label for="EmployeeName" style="margin:0%"
+                                            ><b>EmployeeName </b>
+                                            </label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="EmployeeName"
+                                            value={{traversingElement.employeeName}}
+                                            style="margin:0%"
+                                          />
+                                        </div>
+                                        <div class="col" style="margin:0%">
+                                          <label for="Message To User" style="margin:0%"
+                                            ><b>Message To User </b>
+                                            </label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="messageToUser"
+                                            value={{traversingElement.messageToUser}}
+                                            style="margin:0%"
+                                          />
+                                        </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+  
+
+              </div>
+          </div>
+          <!--Pending Tickets-->
+          <div
+            class="tab-pane fade"
+            id="pendingTickets"
+            role="tabpanel"
+            aria-labelledby="pendingTickets-tab"
+          >
+          <div *ngFor="let traversingElement of arrayOfPendingTickets let i =index;">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#collapseOne'+i"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                    {{traversingElement.description}}
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne{{i}}"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <form>
+                          <div class="card text-left">
+                              <div class="card-header">Ticket Details</div>
+                              <div class="card-body">
+                                  <div class="form-group row">
+                                      <div class="col">
+                                          <label for="ticketID"><b>TicketID</b></label>
+                                           <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketID"
+                                            value={{traversingElement.ticketId}}
+                                            #ticketIDRef
+                                            
+                                          /> 
+                                          <!-- <p #ticketref value=traversingElement.ticketId>{{traversingElement.ticketId}}</p> -->
+                                          
+                                        </div>
+                                        <div class="col">
+                                          <label for="ticketIssue"
+                                            ><b>Ticket Issue</b></label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketIssue"
+                                            value={{traversingElement.issue}}
+                                          />
+                                        </div>
+                                        <div class="col">
+                                          <label for="ticketDescription"
+                                            ><b>Ticket Description</b></label
+                                          >
+                                          <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketDescription"
+                                            value={{traversingElement.description}}
+                                          />
+                                        </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <div class="col-4">
+                                          <label for="ticketStatus" style="margin:0%"
+                                            ><b>Ticket Status</b></label
+                                          >
+                                          <!-- <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketStatus"
+                                            value={{traversingElement.ticketStatus}}
+                                          /> -->
+                                          <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfPendingTickets[i]  #ticketStatusRef>
+                                <option value="{{traversingElement.ticketStatus}}">{{traversingElement.ticketStatus}}</option>
+                                <option value="ASSIGNED">ASSIGNED</option>
+                                <option value="IN_PROGRESS">IN_PROGRESS</option>
+                                <option value="VERIFY">VERIFIED</option>
+                                <option value="CLOSED">CLOSED</option>
+                                <option value="PENDING">PENDING</option>
+                                        </select>
+                                        </div>
+                                        <div class="col">
+                                          <label for="ticketSeverity" style="margin:0%"
+                                            ><b>Ticket Severity</b></label
+                                          >
+                                          <!-- <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="ticketSeverity"
+                                            value={{traversingElement.severity}}
+                                          /> -->
+                                          <select
+                                            aria-label="Default select example"
+                                            class="form-control"
+                                style="width: 250px" [disabled]=!statusArrayOfPendingTickets[i]  #ticketSeverityRef>
+                                <option value="{{traversingElement.severity}}">{{traversingElement.severity}}</option>
+                                <option value="LOW">LOW</option>
+                                <option value="MEDIUM">MEDIUM</option>
+                                <option value="HIGH">HIGH</option>
+                                <option value="SHOW STOPPER">SHOW STOPPER</option>
+                                        </select>
+                                        {{newTicketDetailsDisplayForm.value | json}}
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="card-header">Employee Details</div>
+                              <div class="card-body">
+                                  <div class="form-group row">
+                                      <div class="col" style="margin:0%">
+                                          <label for="EmployeeID" style="margin:0%"
+                                            ><b>EmployeeID</b></label
+                                          >
+                                          <!-- <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="EmployeeID"
+                                            value={{traversingElement.employeeId}}
+                                            style="margin:0%"
+                                          /> -->
+                                          <input
+                                          type="text"
+                                          required
+                                          class="form-control-plaintext"
+                                          id="EmployeeID"
+                                          value={{traversingElement.employeeId}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfPendingTickets[i]
+                                          #employeeIdRef
+                                        />
+                                        </div>
+                                        <div class="col" style="margin:0%">
+                                          <label for="EmployeeName" style="margin:0%"
+                                            ><b>EmployeeName </b>
+                                            </label
+                                          >
+                                          <!-- <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="EmployeeName"
+                                            value={{traversingElement.employeeName}}
+                                            style="margin:0%"
+                                          /> -->
+                                          <input
+                                          type="text"
+                                         
+                                          class="form-control-plaintext"
+                                          id="EmployeeName"
+                                          value={{traversingElement.employeeName}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfPendingTickets[i]
+                                          #employeeNameRef
+                                        />
+                                        </div>
+                                        <div class="col" style="margin:0%">
+                                          <label for="Message To User" style="margin:0%"
+                                            ><b>Message To User </b>
+                                            </label
+                                          >
+                                          <!-- <input
+                                            type="text"
+                                            readonly
+                                            class="form-control-plaintext"
+                                            id="messageToUser"
+                                            value={{traversingElement.messageToUser}}
+                                            style="margin:0%"
+                                          /> -->
+                                          <input
+                                          type="text"
+                                         
+                                          class="form-control-plaintext"
+                                          id="messageToUser"
+                                          value={{traversingElement.messageToUser}}
+                                          style="margin:0%"
+                                          [disabled]=!statusArrayOfPendingTickets[i]
+                                          #messageToUserRef
+                                        />
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="card-body text-center">
+                                <div>
+                              <button class="btn btn-primary" style="color: white" type="button"
+                              
+                              (click)="updateTicketDetailsFromPendingState(ticketIDRef.value,ticketStatusRef.value,ticketSeverityRef.value,employeeIdRef.value,employeeNameRef.value,messageToUserRef.value)"
+                                >Update Ticket</button
+                              >
+                            </div>
+                            <div>
+                                <small *ngIf=failMessageToUpdateDetailsFromPendingState class="text-danger" ><b>**You cannot Assign Tickets to other Employees**</b></small>
+                                <small *ngIf=successMessageToUpdateDetailsFromPendingState class="text-success"><b>**Ticket Details Updated Successfully**</b></small>
+                            </div>
+                            </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+  
+
+              </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

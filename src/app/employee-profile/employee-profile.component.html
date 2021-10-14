@@ -1,0 +1,322 @@
+<app-navbar></app-navbar>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="profile-nav col-md-3">
+            <div class="panel">
+                <div class="card">
+                    <div class="card-body border">
+                      <div class="d-flex flex-column align-items-center text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        <div class="mt-3">
+                          <h4>{{empname}}</h4>
+                          <p class="text-secondary mb-1">Full Stack Developer</p>
+                          <p class="text-muted font-size-sm">Tata Consultant and Service</p>
+                         
+                          <button type="button" class="btn btn-primary" (click)="scroll(targets)">Edit Profile</button>
+                          <br><br>
+                          <button  type ="button" class="btn btn-primary" (click)="scroll(targetss)">Work points</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               
+           
+            </div>
+        </div>
+        <div class="profile-info col-md-9">
+            <div class="panel">
+            </div>
+            <div class="panel">
+                <div class="bio-graph-heading">
+                  <q style="font-size: x-large; color: white;">The only way to do great work is to love what you do</q>
+                </div>
+                <br>
+                <div class="panel-body bio-graph-info">
+                  
+                    <h4  style="font-weight: bold; font-size: xx-large; color: black;" class=" text-center pt-5 cursive"> Profile</h4>
+                    <br><br>
+
+                    <div class="row">
+                        <div class="bio-row">
+                            <h3 style="color: grey ;"><span> Employee Id: </span>{{empid}}</h3>
+                        </div>
+                        <div class="bio-row">
+                      <h3><span>Employee Type:</span>{{emptype}}</h3>
+                  </div>
+                        <!-- <div class="bio-row">
+                            <p><span>Country:</span></p>
+                        </div> -->
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div>
+<br><br><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="bio-chart">
+                                    
+                                </div>
+                                <div class="bio-desk">
+                                  
+                           
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="bio-chart">
+                                    <!-- <div style="display:inline;width:100px;height:100px;"><canvas width="100"
+                                            height="100px"></canvas><input class="knob" data-width="100"
+                                            data-height="100" data-displayprevious="true" data-thickness=".2" value="0"
+                                            data-fgcolor="#4CC5CD" data-bgcolor="#e8e8e8"
+                                            style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background: none;">
+                                    </div> -->
+                                </div>
+                                <div class="bio-desk">
+                                    <!-- <h4 class=" terques">Ticket Pending </h4>
+                                    
+                                    <p >Severity Low:</p>
+                                    <p >Severity medium:</p>
+                                    <p >Severity High:</p>
+                                    <p >Severity Showstopper:</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <!-- <div class="bio-chart">
+                                    <div style="display:inline;width:100px;height:100px;"><canvas width="100"
+                                            height="100px"></canvas><input class="knob" data-width="100"
+                                            data-height="100" data-displayprevious="true" data-thickness=".2" value="0"
+                                            data-fgcolor="#96be4b" data-bgcolor="#e8e8e8"
+                                            style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(150, 190, 75); padding: 0px; -webkit-appearance: none; background: none;">
+                                    </div>
+                                </div> -->
+                                <!-- <div class="bio-desk">
+                                    <h4 class="green">Ticket In-progress</h4>
+                                  
+                                    <p >Severity Low:</p>
+                                    <p >Severity medium:</p>
+                                    <p >Severity High:</p>
+                                    <p >Severity Showstopper:</p>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <!-- <div class="bio-chart">
+                                    <div style="display:inline;width:100px;height:100px;"><canvas width="100"
+                                            height="100px"></canvas><input class="knob" data-width="100"
+                                            data-height="100" data-displayprevious="true" data-thickness=".2" value="0"
+                                            data-fgcolor="#cba4db" data-bgcolor="#e8e8e8"
+                                            style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(145, 98, 163); padding: 0px; -webkit-appearance: none; background: none;">
+                                    </div>
+                                </div> -->
+                                <!-- <div class="bio-desk">
+                                    <h4 class="purple">Ticket Closed</h4>
+                                    <p >Severity Low:</p>
+                                    <p >Severity medium:</p>
+                                    <p >Severity High:</p>
+                                    <p >Severity Showstopper:</p>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
+<!-- edit profile -->
+<div #targets>
+    <div class="container light-style flex-grow-1 container-p-y">
+
+        <h4 class="font-weight-bold py-3 mb-4 text-center">
+          Employee Profile
+        </h4>
+    
+        <div class="card overflow-hidden">
+          <div class="row no-gutters row-bordered row-border-light">
+            <div class="col-md-3 pt-0">
+              <div class="list-group list-group-flush account-settings-links">
+    
+                <a class="list-group-item list-group-item-action active" data-toggle="list"(click)="invokeGeneral()">General</a>
+                <a class="list-group-item list-group-item-action" data-toggle="list"  (click)="invokeChangePassword()">Change password</a>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="tab-content">
+                <div class="tab-pane fade active show" id="account-general">
+    
+                  <div class="card-body media align-items-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="d-block ui-w-80">
+                  </div>
+                 
+    
+                  <div *ngIf= "displayGeneral" class="card-body">
+                   
+                    <form [formGroup]="employeeForm" > 
+                    <div class="form-group">
+                      <label class="form-label">Name</label>
+                      <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                      
+                    </div>
+                    <div *ngIf="employeeForm.get('name').invalid && employeeForm.get('name').touched">
+                      <small *ngIf= "employeeForm.get('name').errors?.required" class="text-danger">Name is Required</small>
+                    </div>
+                     
+                    <div class="form-group">
+                      <label class="form-label">Contact Number</label>
+                      <input type="number" class="form-control" placeholder="Mobile Number" formControlName="contactNo">
+
+                    </div>
+                    <div *ngIf="employeeForm.get('contactNo').invalid && employeeForm.get('contactNo').touched">
+                      <small *ngIf= "employeeForm.get('contactNo').errors?.required" class="text-danger">Contact number is Required</small>
+                      <small *ngIf= "employeeForm.get('contactNo').errors?.minlength" class="text-danger" >phonenumber must be 10 digits</small>
+                    </div>
+                    <div class="form-group ">
+                      <label class="form-label">Secreat Question1</label>
+                      <select class="form-control" formControlName="question1">
+                        <option selected="">What is the name of the Birth Place?</option>
+                        <option>What is your favourite Food?</option>
+                        <option>What is the favourite place to visit?</option>
+                        <option> Who was your childhood hero?</option>
+                      </select>
+                    </div> 
+                    <div class="form-group">
+                      <label class="form-label">Answer</label>
+                      <input type="text" class="form-control" placeholder="Answer" formControlName="answer1">
+                      </div>
+                      <div *ngIf="employeeForm.get('answer1').invalid && employeeForm.get('answer1').touched">
+                        <small *ngIf= "employeeForm.get('answer1').errors?.required" class="text-danger">Answer is Required</small>
+                      </div>
+
+                      <div class="form-group ">
+                        <label class="form-label">Secreat Question2</label>
+                        <select class="form-control" formControlName="question2">
+                          <option selected="" >Who is your favourite sports person?</option>
+                          <option>Which school did you studied?</option>
+                          <option>What is your favourite sports?</option>
+                          <option>Where was your best family vacation as a kid?
+                          </option>
+                        </select>
+                      </div> 
+                    
+                  <div class="form-group">
+                    <label class="form-label">Answer</label>
+                    <input type="text" class="form-control" placeholder="Answer" formControlName="answer2">
+                    </div>
+                    <div *ngIf="employeeForm.get('answer2').invalid && employeeForm.get('answer2').touched">
+                      <small *ngIf= "employeeForm.get('answer2').errors?.required" class="text-danger">Answer is Required</small>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+           
+                <div *ngIf="displayChangePassword">
+
+                  <div class="card-body pb-2">
+                    <form [formGroup]="employeeForm"> 
+                    <div class="form-group">
+                        <label class="form-label">Employee ID</label>
+                        <input type="number" class="form-control"  value={{empid}} [disabled]=true>
+                      </div>
+
+                    <!-- <div class="form-group">
+                      <label class="form-label">Current password</label>
+                      <input type="password" class="form-control" formControlName="currentPassword">
+                    </div> -->
+    
+                    <div class="form-group">
+                      <label class="form-label">New password</label>
+                      <input type="password" class="form-control" formControlName="password">
+                    </div>
+                    <div *ngIf="employeeForm.get('password').invalid && employeeForm.get('password').touched">
+                      <small *ngIf= "employeeForm.get('password').errors?.required" class="text-danger">password is Required</small>
+                      <small *ngIf= "employeeForm.get('password').errors?.pattern" class="text-danger">password must contain special character,uppercase and lower case and number and minimum 8 character</small>
+                    </div>
+    
+                    <div class="form-group">
+                      <label class="form-label">Repeat new password</label>
+                      <input type="password" class="form-control" formControlName="cpassword">
+                    </div>
+                    <div *ngIf="employeeForm.get('cpassword').invalid && employeeForm.get('cpassword').touched">
+                      <small *ngIf= "employeeForm.get('cpassword').errors?.required" class="text-danger">Repeat password is Required</small>
+                    </div>
+                    <div
+                      *ngIf="employeeForm.errors?.mismatch"
+                      class="text-danger"
+                    >
+                      <small>password mismatch</small>
+                    </div>
+                    </form>
+                  </div>
+                  
+                </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+    
+        <div class="text-center mt-3">
+          <button type="button" class="btn btn-primary"  (click)="empDetailUpdate()">Save changes</button>&nbsp;
+          <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+        <br>
+        <h5 style="color: green;"> {{SuccessStatement}} </h5>
+        <h5 style="color: red;"> {{FailureStatement}}</h5>
+
+
+    <div #targetss>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2 id="heading">Employee Work Profile</h2>
+                    <p>Keep Going and Earn badges</p>
+                    <form id="msform">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                             <li [class.active]=Apprentice id="account"><strong>Apprentice</strong></li> 
+                           
+                            <li  id="confirm" [class.active]=Initiated><strong>Initiated</strong></li>
+                            <li id="confirm"  [class.active]=Trained><strong>Trained</strong></li>
+                            <li id="confirm" [class.active]=Able><strong>Able</strong></li>
+                            <li id="confirm" [class.active]=Competent><strong>Competent</strong></li>
+                            <li id="confirm" [class.active]=Adept><strong>Adept</strong></li>
+                            <li id="confirm" [class.active]= Experienced><strong>Experienced</strong></li>
+                            <li id="confirm"><strong>Proficient</strong></li> 
+                            <li id="confirm"><strong>Specialist</strong></li>
+                            <li id="confirm"><strong>Inspiring</strong></li>
+                            <li id="confirm"><strong>Master</strong></li>
+                            <li id="confirm"><strong>Grand Master</strong></li>
+                            <li id="confirm"><strong>Arch master</strong></li>
+                            <li id="confirm"><strong>Supreme Master</strong></li>
+                            <li id="confirm"><strong>Ultimate Master</strong></li>
+                            <li id="confirm"><strong>Great Master</strong></li>
+                            <li id="confirm"><strong>Great Grand Master</strong></li>
+                            <li id="confirm"><strong>Great Arch Master</strong></li>
+                            <li id="confirm"><strong>Great Supreme Master</strong></li>
+                            <li id="confirm"><strong>Great Ultimate Master</strong></li>
+                        </ul>
+                        <button type="button" class="btn btn-primary" (click)="scroll(targets)">Profile</button>
+                      </form>
+</div>
+</div>
+</div> 
+</div>

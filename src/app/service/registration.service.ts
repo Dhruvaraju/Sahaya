@@ -11,5 +11,6 @@ export class formSubmitService{
     
     onFormSubmit(formData:any):Observable<any>{
         return this.http.post<any>(this.url+'register',formData)
+    
     }
 }
