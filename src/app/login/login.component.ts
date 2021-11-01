@@ -225,7 +225,8 @@ export class LoginComponent implements OnInit {
       password: this.resetPasswordForm.get('nPassword').value,
     };
     console.log(this.forgotPasswordForm.get('empID').value, this.resetPasswordForm.get('nPassword').value)
-    this._userService.resetPassword(resetPasswordRequest).subscribe(
+    // this._userService.resetPassword(resetPasswordRequest).subscribe(
+      this._userService.empDetailUpdate(resetPasswordRequest).subscribe(
       data=>{console.log('success',data);
       this.resetPasswordSuccessFullFlag=true;},
       error=>{console.log('error',error)}

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FaqComponent } from './faq/faq.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,8 +19,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   {path: 'employee', component:EmployeeProfileComponent},
   {path: 'faq',component:FaqComponent},
-  {path: 'feedback',component:FeedbackComponent}
-  
+  {path: 'feedback',component:FeedbackComponent},
+  {path:'logout',component:LogoutComponent}
 ];
 
 @NgModule({
