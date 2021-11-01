@@ -17,11 +17,12 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { FaqComponent } from './faq/faq.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LogoutComponent } from './logout/logout.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, DashboardComponent, HomeComponent, MenubarComponent, FooterComponent, EmployeeProfileComponent, FaqComponent, FeedbackComponent, NavbarComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, DashboardComponent, HomeComponent, MenubarComponent, FooterComponent, EmployeeProfileComponent, FaqComponent, FeedbackComponent, NavbarComponent, LogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
